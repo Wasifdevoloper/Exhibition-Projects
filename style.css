@@ -1,0 +1,110 @@
+/* General Styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, sans-serif;
+}
+
+body {
+    background-color: #f4f4f9;
+    color: #333;
+    line-height: 1.6;
+}
+
+header h1 {
+    font-size: 36px;
+}
+
+header p {
+    font-size: 18px;
+}
+
+.projects {
+    margin-top: 20px;
+}
+
+.project {
+    background: #ffffff;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease;
+}
+
+.project:hover {
+    transform: scale(1.05);
+}
+
+.project h2 {
+    font-size: 24px;
+    margin-bottom: 10px;
+}
+
+.project p {
+    font-size: 16px;
+    color: #777;
+}
+
+.project a {
+    margin-top: 10px;
+    display: inline-block;
+}
+
+/* Footer Styles */
+footer p {
+    font-size: 14px;
+    margin: 0;
+}
+
+footer {
+    background-color: #1e2a38;
+    color: white;
+}
+
+/* Team Section */
+.team h3 {
+    font-size: 24px;
+}
+
+.team ul {
+    list-style-type: none;
+    padding-left: 0;
+}
+
+.team li {
+    font-size: 18px;
+    margin: 5px 0;
+}
+/* Add styles for the Project 1 Page */
+.project-section {
+    margin-bottom: 30px;
+}
+
+.project-section h2 {
+    font-size: 24px;
+    color: #333;
+}
+
+.project-section ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+.project-section ul li {
+    margin: 5px 0;
+}
+
+/* Specific styles for the header of project 1 */
+header h1 {
+    font-size: 36px;
+    text-align: center;
+    color: #333;
+}
+
+/* Footer for project 1 */
+footer p {
+    text-align: center;
+    font-size: 14px;
+    color: #888;
+}
