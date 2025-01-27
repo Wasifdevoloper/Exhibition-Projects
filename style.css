@@ -1,241 +1,207 @@
-/* General Reset */
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-    font-family: Arial, sans-serif;
-}
-
-/* Body Styling */
+/* General Fix for Body */
 body {
-    background-color: #f4f4f9; /* Light background */
-    color: #333; /* Dark text */
-    line-height: 1.6;
-    transition: background-color 0.3s ease, color 0.3s ease;
-}
-
-/* Dark Theme */
-body.dark-theme {
-    background-color: #1e1e1e; /* Dark background */
-    color: #f4f4f9; /* Light text */
-}
-
-/* Links */
-a {
-    color: #1fa2ff;
-    text-decoration: none;
-}
-
-a:hover {
-    color: #0056b3;
-}
-
-body.dark-theme a {
-    color: #1fa2ff;
+    background-color: #f4f4f9; /* Light grey background */
+    color: #1e1e1e; /* Darker text for improved contrast */
+    margin: 0;
+    font-family: Arial, sans-serif; /* Ensure readable font */
 }
 
 /* Header */
 header {
-    padding: 20px;
+    background-color: #1e2a38; /* Dark header background */
+    color: #ffffff; /* White text */
     text-align: center;
-    background-color: #f4f4f9; /* Header background */
-    color: #f4f4f9; /* Header text */
-    transition: background-color 0.3s ease, color 0.3s ease;
+    padding: 20px 0;
 }
 
 header h1 {
     font-size: 36px;
-    text-transform: uppercase;
-    letter-spacing: 1px;
-    margin-bottom: 10px;
+    margin: 0;
 }
 
 header p {
     font-size: 18px;
-    margin-bottom: 0;
-}
-
-/* Navbar */
-nav {
-    background-color: #1e2a38; /* Navbar background */
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-    transition: background-color 0.3s ease;
-}
-
-nav.sticky {
-    position: sticky;
-    top: 0;
-    z-index: 1000;
-}
-
-.navbar-nav .nav-link {
-    color: white !important; /* Nav links */
-    padding: 10px 15px;
-    transition: background-color 0.3s ease, color 0.3s ease;
-}
-
-.navbar-nav .nav-link:hover,
-.navbar-nav .nav-link.active {
-    background-color: #444; /* Hover state */
-    border-radius: 5px;
-}
-
-/* Projects Section */
-.projects {
-    margin-top: 20px;
-    text-align: center;
-}
-
-.project {
-    background: #ffffff; /* Project card background */
-    padding: 20px;
-    border-radius: 8px;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-    transition: transform 0.3s ease, background-color 0.3s ease, box-shadow 0.3s ease, color 0.3s ease;
-    color: #333; /* Project text */
-}
-
-.project:hover {
-    transform: scale(1.05);
-    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
-}
-
-.project h3 {
-    font-size: 24px;
-    margin-bottom: 10px;
-    color: #333;
-}
-
-.project p {
-    font-size: 16px;
-    color: #555; /* Subtle text */
-}
-
-.project a {
-    margin-top: 10px;
-    display: inline-block;
-    color: white;
-    background-color: #1fa2ff; /* Button color */
-    padding: 10px 20px;
-    border-radius: 5px;
-    text-decoration: none;
-    font-weight: bold;
-    transition: background-color 0.3s ease;
-}
-
-.project a:hover {
-    background-color: #0056b3;
-}
-
-/* Dark Theme Adjustments for Projects */
-body.dark-theme .project {
-    background-color: #2c2c2c; /* Dark project card */
-    color: #f4f4f9; /* Light text */
-}
-
-body.dark-theme .project h3 {
-    color: #1fa2ff; /* Highlighted title */
-}
-
-body.dark-theme .project p {
-    color: #bbbbbb; /* Subtle text */
-}
-
-body.dark-theme .project a {
-    background-color: #444;
-}
-
-body.dark-theme .project a:hover {
-    background-color: #1fa2ff;
-}
-
-/* Team Section */
-.team {
-    padding: 20px 0;
-    color: #333;
-}
-
-.team h3 {
-    font-size: 28px;
-    text-align: center;
-    margin-bottom: 20px;
-}
-
-.team ul {
-    list-style: none;
-    padding: 0;
-    text-align: center;
-}
-
-.team li {
-    font-size: 18px;
-    margin: 5px 0;
-    color: #555;
-}
-
-body.dark-theme .team li {
-    color: #f4f4f9; /* Light text for dark theme */
+    margin: 10px 0 0;
 }
 
 /* Footer */
 footer {
-    background-color: #1e2a38;
-    color: white;
-    padding: 15px;
+    padding: 25px;
+    background-color: #1e2a38; /* Dark blue/gray footer */
+    color: #ffffff; /* White text */
     text-align: center;
-    transition: background-color 0.3s ease, color 0.3s ease;
 }
 
-footer button {
-    margin-top: 10px;
-    color: white;
-    background-color: #444;
-    border: none;
-    padding: 8px 16px;
-    border-radius: 5px;
-    cursor: pointer;
-    transition: background-color 0.3s ease;
+/* Projects Section */
+.projects {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    margin: 40px 0;
+    background-color: #e8ecef; /* Slightly darker grey for project background */
+    padding: 20px;
+    border-radius: 10px;
 }
 
-footer button:hover {
-    background-color: #1fa2ff;
+.project {
+    width: 30%; /* Smaller width for cards */
+    margin: 15px;
+    background-color: #ffffff; /* White card background */
+    color: #1e1e1e; /* Dark text for visibility */
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    border-radius: 8px;
 }
 
-/* Scroll-to-Top Button */
-#scroll-to-top {
-    position: fixed;
-    bottom: 30px;
-    right: 30px;
-    background-color: #1fa2ff;
-    color: white;
-    border: none;
-    padding: 10px 15px;
-    border-radius: 50%;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
-    cursor: pointer;
-    opacity: 0;
-    visibility: hidden;
-    transition: opacity 0.3s ease, visibility 0.3s ease, transform 0.3s ease;
+.project h3 {
+    font-size: 26px;
+    color: #000000; /* Black for clarity */
+    margin: 0 0 10px;
 }
 
-#scroll-to-top:hover {
-    background-color: #0056b3;
+.project p {
+    font-size: 16px;
+    color: #555555; /* Subtle grey for secondary text */
 }
 
-#scroll-to-top.show {
-    opacity: 1;
-    visibility: visible;
-    transform: scale(1);
+/* Responsive Styles for Smaller Screens (Max Width: 767px) */
+@media (max-width: 767px) {
+    body {
+        background-color: #f4f4f9; /* Light background */
+        color: #333; /* Dark text */
+    }
+
+    .projects {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        margin: 20px 0;
+        padding: 20px;
+    }
+
+    .project {
+        width: 90%; /* Take up most of the width */
+        margin-bottom: 20px;
+        background-color: #ffffff; /* Ensure visible background */
+        color: #333; /* Ensure visible text */
+        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+        padding: 15px;
+    }
+
+    .project h3 {
+        font-size: 22px;
+        color: #333; /* Ensure heading text is visible */
+    }
+
+    .project p {
+        font-size: 16px;
+        color: #555; /* Subtle but visible text */
+    }
+
+    header h1 {
+        font-size: 30px; /* Scale header text */
+    }
+
+    header p {
+        font-size: 18px; /* Scale subtitle text */
+    }
+
+    footer {
+        padding: 20px;
+    }
 }
 
-/* Animations */
-.animate {
-    opacity: 1;
-    transform: translateY(0);
-    transition: all 0.3s ease;
+/* For Medium-Sized Screens (Width: 768px to 991px) */
+@media (min-width: 768px) and (max-width: 991px) {
+    body {
+        background-color: #f4f4f9;
+        color: #333;
+    }
+
+    .projects {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        margin: 30px 0;
+        padding: 20px;
+    }
+
+    .project {
+        width: 45%; /* Moderate width for cards */
+        margin: 10px;
+        background-color: #ffffff;
+        color: #333;
+        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+        padding: 20px;
+    }
+
+    .project h3 {
+        font-size: 24px;
+        color: #333;
+    }
+
+    .project p {
+        font-size: 16px;
+        color: #555;
+    }
+
+    header h1 {
+        font-size: 32px;
+    }
+
+    header p {
+        font-size: 18px;
+    }
+
+    footer {
+        padding: 20px;
+    }
 }
 
-.animate-on-scroll {
-    opacity: 0;
-    transform: translateY(50px);
+/* For Larger Screens (Min Width: 992px) */
+@media (min-width: 992px) {
+    body {
+        background-color: #f4f4f9;
+        color: #333;
+    }
+
+    .projects {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        margin: 40px 0;
+        padding: 20px;
+    }
+
+    .project {
+        width: 30%; /* Smaller width for cards */
+        margin: 15px;
+        background-color: #ffffff;
+        color: #333;
+        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+        padding: 20px;
+        border-radius: 8px;
+    }
+
+    .project h3 {
+        font-size: 26px;
+        color: #333;
+    }
+
+    .project p {
+        font-size: 16px;
+        color: #555;
+    }
+
+    header h1 {
+        font-size: 36px;
+    }
+
+    header p {
+        font-size: 18px;
+    }
+
+    footer {
+        padding: 25px;
+    }
 }
