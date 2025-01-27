@@ -39,7 +39,7 @@ header {
     padding: 20px;
     text-align: center;
     background-color: #1e2a38; /* Header background */
-    color: white; /* Header text */
+    color: #f4f4f9; /* Header text */
     transition: background-color 0.3s ease, color 0.3s ease;
 }
 
