@@ -1,4 +1,4 @@
-/* General Styles */
+/* General Reset */
 * {
     margin: 0;
     padding: 0;
@@ -6,105 +6,236 @@
     font-family: Arial, sans-serif;
 }
 
+/* Body Styling */
 body {
-    background-color: #f4f4f9;
-    color: #333;
+    background-color: #f4f4f9; /* Light background */
+    color: #333; /* Dark text */
     line-height: 1.6;
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+/* Dark Theme */
+body.dark-theme {
+    background-color: #1e1e1e; /* Dark background */
+    color: #f4f4f9; /* Light text */
+}
+
+/* Links */
+a {
+    color: #1fa2ff;
+    text-decoration: none;
+}
+
+a:hover {
+    color: #0056b3;
+}
+
+body.dark-theme a {
+    color: #1fa2ff;
+}
+
+/* Header */
+header {
+    padding: 20px;
+    text-align: center;
+    background-color: #1e2a38; /* Header background */
+    color: white; /* Header text */
+    transition: background-color 0.3s ease, color 0.3s ease;
 }
 
 header h1 {
     font-size: 36px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    margin-bottom: 10px;
 }
 
 header p {
     font-size: 18px;
+    margin-bottom: 0;
 }
 
+/* Navbar */
+nav {
+    background-color: #1e2a38; /* Navbar background */
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    transition: background-color 0.3s ease;
+}
+
+nav.sticky {
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+}
+
+.navbar-nav .nav-link {
+    color: white !important; /* Nav links */
+    padding: 10px 15px;
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.navbar-nav .nav-link:hover,
+.navbar-nav .nav-link.active {
+    background-color: #444; /* Hover state */
+    border-radius: 5px;
+}
+
+/* Projects Section */
 .projects {
     margin-top: 20px;
+    text-align: center;
 }
 
 .project {
-    background: #ffffff;
+    background: #ffffff; /* Project card background */
     padding: 20px;
     border-radius: 8px;
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-    transition: transform 0.3s ease;
+    transition: transform 0.3s ease, background-color 0.3s ease, box-shadow 0.3s ease, color 0.3s ease;
+    color: #333; /* Project text */
 }
 
 .project:hover {
     transform: scale(1.05);
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
 }
 
-.project h2 {
+.project h3 {
     font-size: 24px;
     margin-bottom: 10px;
+    color: #333;
 }
 
 .project p {
     font-size: 16px;
-    color: #777;
+    color: #555; /* Subtle text */
 }
 
 .project a {
     margin-top: 10px;
     display: inline-block;
-}
-
-/* Footer Styles */
-footer p {
-    font-size: 14px;
-    margin: 0;
-}
-
-footer {
-    background-color: #1e2a38;
     color: white;
+    background-color: #1fa2ff; /* Button color */
+    padding: 10px 20px;
+    border-radius: 5px;
+    text-decoration: none;
+    font-weight: bold;
+    transition: background-color 0.3s ease;
+}
+
+.project a:hover {
+    background-color: #0056b3;
+}
+
+/* Dark Theme Adjustments for Projects */
+body.dark-theme .project {
+    background-color: #2c2c2c; /* Dark project card */
+    color: #f4f4f9; /* Light text */
+}
+
+body.dark-theme .project h3 {
+    color: #1fa2ff; /* Highlighted title */
+}
+
+body.dark-theme .project p {
+    color: #bbbbbb; /* Subtle text */
+}
+
+body.dark-theme .project a {
+    background-color: #444;
+}
+
+body.dark-theme .project a:hover {
+    background-color: #1fa2ff;
 }
 
 /* Team Section */
+.team {
+    padding: 20px 0;
+    color: #333;
+}
+
 .team h3 {
-    font-size: 24px;
+    font-size: 28px;
+    text-align: center;
+    margin-bottom: 20px;
 }
 
 .team ul {
-    list-style-type: none;
-    padding-left: 0;
+    list-style: none;
+    padding: 0;
+    text-align: center;
 }
 
 .team li {
     font-size: 18px;
     margin: 5px 0;
-}
-/* Add styles for the Project 1 Page */
-.project-section {
-    margin-bottom: 30px;
+    color: #555;
 }
 
-.project-section h2 {
-    font-size: 24px;
-    color: #333;
+body.dark-theme .team li {
+    color: #f4f4f9; /* Light text for dark theme */
 }
 
-.project-section ul {
-    list-style-type: none;
-    padding: 0;
-}
-
-.project-section ul li {
-    margin: 5px 0;
-}
-
-/* Specific styles for the header of project 1 */
-header h1 {
-    font-size: 36px;
+/* Footer */
+footer {
+    background-color: #1e2a38;
+    color: white;
+    padding: 15px;
     text-align: center;
-    color: #333;
+    transition: background-color 0.3s ease, color 0.3s ease;
 }
 
-/* Footer for project 1 */
-footer p {
-    text-align: center;
-    font-size: 14px;
-    color: #888;
+footer button {
+    margin-top: 10px;
+    color: white;
+    background-color: #444;
+    border: none;
+    padding: 8px 16px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+footer button:hover {
+    background-color: #1fa2ff;
+}
+
+/* Scroll-to-Top Button */
+#scroll-to-top {
+    position: fixed;
+    bottom: 30px;
+    right: 30px;
+    background-color: #1fa2ff;
+    color: white;
+    border: none;
+    padding: 10px 15px;
+    border-radius: 50%;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+    cursor: pointer;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.3s ease, visibility 0.3s ease, transform 0.3s ease;
+}
+
+#scroll-to-top:hover {
+    background-color: #0056b3;
+}
+
+#scroll-to-top.show {
+    opacity: 1;
+    visibility: visible;
+    transform: scale(1);
+}
+
+/* Animations */
+.animate {
+    opacity: 1;
+    transform: translateY(0);
+    transition: all 0.3s ease;
+}
+
+.animate-on-scroll {
+    opacity: 0;
+    transform: translateY(50px);
 }
