@@ -80,7 +80,7 @@ document.addEventListener("DOMContentLoaded", () => {
                       charIndex = 0;
                       textIndex = (textIndex + 1) % textArray.length;
                       type();
-                  }, 1500);
+                  }, 5500);
               }
           };
           type();
