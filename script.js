@@ -74,22 +74,35 @@ document.addEventListener("DOMContentLoaded", () => {
       localStorage.setItem("theme", isDark ? "dark" : "light");
     });
   
-    // === Typing Effect (One Cycle) ===
-    if (headerTitle) {
-      const typingEffect = (element, textArray, speed) => {
-        let textIndex = 0;
-        let charIndex = 0;
-        const type = () => {
-          if (charIndex < textArray[textIndex].length) {
-            element.innerHTML += textArray[textIndex].charAt(charIndex);
-            charIndex++;
-            setTimeout(type, speed);
-          }
-        };
-        type();
+    // === Typing Effect (One Cycle with Delay Between Sentences) ===
+if (headerTitle) {
+    const typingEffect = (element, textArray, speed, sentenceDelay) => {
+      let textIndex = 0;
+      let charIndex = 0;
+  
+      const type = () => {
+        if (charIndex < textArray[textIndex].length) {
+          element.innerHTML += textArray[textIndex].charAt(charIndex);
+          charIndex++;
+          setTimeout(type, speed);
+        } else {
+          // Delay before starting the next sentence
+          setTimeout(() => {
+            textIndex++;
+            if (textIndex < textArray.length) {
+              charIndex = 0; // Reset charIndex for next sentence
+              element.innerHTML = ""; // Clear the current sentence
+              type(); // Start typing the next sentence
+            }
+          }, sentenceDelay); // Delay before moving to the next sentence
+        }
       };
-      typingEffect(headerTitle, ["Saraswati Puja Exhibition", "Explore Our Projects"], 100);
-    }
+  
+      type();
+    };
+  
+    typingEffect(headerTitle, ["Saraswati Puja Exhibition", "Explore Our Projects"], 100, 2000);
+  }
   
     // === Scroll Animations (Intersection Observer) ===
     const observerOptions = { threshold: 0.2 };
