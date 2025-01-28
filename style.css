@@ -51,20 +51,24 @@ footer {
 .projects {
     display: flex;
     flex-wrap: wrap;
-    justify-content: space-evenly;
+    justify-content: center; /* Center align items */
+    align-items: center;
     gap: 20px;
     padding: 40px;
+    text-align: center; /* Ensure text inside is centered */
 }
 
+/* Individual Project Cards */
 .project {
-    width: 30%;
+    width: 90%; /* Ensures proper width on mobile */
+    max-width: 400px; /* Prevents it from becoming too wide */
     background: white;
     border-radius: 10px;
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
     padding: 20px;
-    text-align: center;
+    text-align: center; /* Ensures text is aligned */
     transition: transform 0.3s, box-shadow 0.3s;
-    overflow: hidden; /* Ensure no overflow issues */
+    margin: 0 auto; /* Centering the project box */
 }
 
 .project h3 {
@@ -86,6 +90,7 @@ footer {
     padding: 10px 20px;
     border-radius: 5px;
     font-weight: bold;
+    display: inline-block;
     transition: background-color 0.3s ease;
 }
 
@@ -107,6 +112,7 @@ footer {
 
     .project {
         width: 90%;
+        text-align: center; /* Ensure text stays centered */
     }
 
     header h1 {
