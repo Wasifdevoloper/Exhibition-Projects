@@ -1,148 +1,112 @@
-/* General Fix for Body */
+/* General Reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, sans-serif;
+}
+
+/* Body Styling */
 body {
     background-color: #f4f4f9; /* Light grey background */
-    color: #1e1e1e; /* Darker text for improved contrast */
-    margin: 0;
-    font-family: Arial, sans-serif; /* Ensure readable font */
+    color: #333; /* Dark text */
+    line-height: 1.6;
+    overflow-x: hidden; /* Prevent horizontal scroll issues */
 }
 
 /* Header */
 header {
-    background-color: #1e2a38; /* Dark header background */
-    color: #ffffff; /* White text */
+    background: linear-gradient(90deg, #1e2a38, #157cf1); /* Cool gradient for header */
+    color: white;
     text-align: center;
-    padding: 20px 0;
+    padding: 30px 0;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
 }
 
 header h1 {
-    font-size: 36px;
-    margin: 0;
+    font-size: 40px;
+    text-transform: uppercase;
+    margin-bottom: 10px;
+    letter-spacing: 2px;
 }
 
 header p {
     font-size: 18px;
-    margin: 10px 0 0;
+    margin: 0;
 }
 
 /* Footer */
 footer {
-    padding: 25px;
-    background-color: #1e2a38; /* Dark blue/gray footer */
-    color: #ffffff; /* White text */
+    background-color: #1e2a38;
+    color: white;
     text-align: center;
+    padding: 20px 0;
+    margin-top: 20px;
 }
 
 /* Projects Section */
 .projects {
     display: flex;
     flex-wrap: wrap;
-    justify-content: center;
-    margin: 40px 0;
-    background-color: #e8ecef; /* Slightly darker grey for project background */
-    padding: 20px;
-    border-radius: 10px;
+    justify-content: space-evenly;
+    gap: 20px;
+    padding: 40px;
 }
 
 .project {
-    width: 30%; /* Smaller width for cards */
-    margin: 15px;
-    background-color: #ffffff; /* White card background */
-    color: #1e1e1e; /* Dark text for visibility */
+    width: 30%;
+    background: white;
+    border-radius: 10px;
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
     padding: 20px;
-    border-radius: 8px;
+    text-align: center;
+    transition: transform 0.3s, box-shadow 0.3s;
+    overflow: hidden; /* Ensure no overflow issues */
 }
 
 .project h3 {
-    font-size: 26px;
-    color: #000000; /* Black for clarity */
-    margin: 0 0 10px;
+    font-size: 24px;
+    color: #157cf1;
+    margin-bottom: 10px;
 }
 
 .project p {
     font-size: 16px;
-    color: #555555; /* Subtle grey for secondary text */
+    color: #555;
+    margin-bottom: 15px;
 }
 
-/* Responsive Styles for Smaller Screens (Max Width: 767px) */
+.project a {
+    text-decoration: none;
+    color: white;
+    background: #157cf1;
+    padding: 10px 20px;
+    border-radius: 5px;
+    font-weight: bold;
+    transition: background-color 0.3s ease;
+}
+
+.project:hover {
+    transform: scale(1.05);
+    box-shadow: 0 8px 15px rgba(0, 0, 0, 0.2);
+}
+
+.project a:hover {
+    background: #0056b3;
+}
+
+/* Responsive Styles */
 @media (max-width: 767px) {
-    body {
-        background-color: #f4f4f9; /* Light background */
-        color: #333; /* Dark text */
-    }
-
     .projects {
-        display: flex;
         flex-direction: column;
-        align-items: center;
-        margin: 20px 0;
         padding: 20px;
     }
 
     .project {
-        width: 90%; /* Take up most of the width */
-        margin-bottom: 20px;
-        background-color: #ffffff; /* Ensure visible background */
-        color: #333; /* Ensure visible text */
-        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-        padding: 15px;
-    }
-
-    .project h3 {
-        font-size: 22px;
-        color: #333; /* Ensure heading text is visible */
-    }
-
-    .project p {
-        font-size: 16px;
-        color: #555; /* Subtle but visible text */
-    }
-
-    header h1 {
-        font-size: 30px; /* Scale header text */
-    }
-
-    header p {
-        font-size: 18px; /* Scale subtitle text */
-    }
-
-    footer {
-        padding: 20px;
-    }
-}
-
-/* For Medium-Sized Screens (Width: 768px to 991px) */
-@media (min-width: 768px) and (max-width: 991px) {
-    body {
-        background-color: #f4f4f9;
-        color: #333;
-    }
-
-    .projects {
-        display: flex;
-        flex-wrap: wrap;
-        justify-content: center;
-        margin: 30px 0;
-        padding: 20px;
-    }
-
-    .project {
-        width: 45%; /* Moderate width for cards */
-        margin: 10px;
-        background-color: #ffffff;
-        color: #333;
-        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-        padding: 20px;
-    }
-
-    .project h3 {
-        font-size: 24px;
-        color: #333;
-    }
-
-    .project p {
-        font-size: 16px;
-        color: #555;
+        width: 90%;
     }
 
     header h1 {
@@ -150,58 +114,52 @@ footer {
     }
 
     header p {
-        font-size: 18px;
-    }
-
-    footer {
-        padding: 20px;
+        font-size: 16px;
     }
 }
 
-/* For Larger Screens (Min Width: 992px) */
-@media (min-width: 992px) {
-    body {
-        background-color: #f4f4f9;
-        color: #333;
-    }
-
-    .projects {
-        display: flex;
-        flex-wrap: wrap;
-        justify-content: center;
-        margin: 40px 0;
-        padding: 20px;
-    }
-
+@media (min-width: 768px) and (max-width: 991px) {
     .project {
-        width: 30%; /* Smaller width for cards */
-        margin: 15px;
-        background-color: #ffffff;
-        color: #333;
-        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-        padding: 20px;
-        border-radius: 8px;
-    }
-
-    .project h3 {
-        font-size: 26px;
-        color: #333;
-    }
-
-    .project p {
-        font-size: 16px;
-        color: #555;
+        width: 45%;
     }
 
     header h1 {
         font-size: 36px;
     }
+}
 
-    header p {
-        font-size: 18px;
+@media (min-width: 992px) {
+    .project {
+        width: 30%;
     }
 
-    footer {
-        padding: 25px;
+    header h1 {
+        font-size: 40px;
     }
+}
+
+/* Scroll-to-Top Button */
+#scroll-to-top {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    background: #157cf1;
+    color: white;
+    border: none;
+    padding: 10px 15px;
+    border-radius: 50%;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+    cursor: pointer;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.3s ease, visibility 0.3s ease;
+}
+
+#scroll-to-top.show {
+    opacity: 1;
+    visibility: visible;
+}
+
+#scroll-to-top:hover {
+    background: #0056b3;
 }
