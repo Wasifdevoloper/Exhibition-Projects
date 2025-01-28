@@ -8,10 +8,30 @@
 
 /* Body Styling */
 body {
-    background-color: #f4f4f9; /* Light grey background */
-    color: #333; /* Dark text */
+    background-color: #f4f4f9; /* Light grey background (Light Mode) */
+    color: #333; /* Dark text (Light Mode) */
     line-height: 1.6;
     overflow-x: hidden; /* Prevent horizontal scroll issues */
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+/* Dark Mode */
+body.dark-theme {
+    background-color: #333; /* Dark background */
+    color: #f4f4f9; /* Light text */
+}
+
+body.dark-theme header {
+    background: linear-gradient(90deg, #1e2a38, #157cf1);
+}
+
+body.dark-theme footer {
+    background-color: #1e2a38;
+}
+
+body.dark-theme .project {
+    background: #444; /* Dark background for project cards */
+    color: #f4f4f9; /* Light text */
 }
 
 /* Header */
@@ -168,4 +188,30 @@ footer {
 
 #scroll-to-top:hover {
     background: #0056b3;
+}
+
+/* Dark/Light Mode Toggle Icon */
+#theme-toggle {
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: none;
+    border: none;
+    transition: transform 0.3s ease;
+}
+
+#theme-toggle:hover {
+    transform: scale(1.1);
+}
+
+/* Optional Styles for PNG Icons */
+#theme-toggle img {
+    width: 30px;
+    height: 30px;
+    transition: transform 0.3s ease;
+}
+
+#theme-toggle.dark img {
+    transform: rotate(180deg);
 }
