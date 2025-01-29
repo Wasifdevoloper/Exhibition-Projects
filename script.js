@@ -88,7 +88,7 @@ document.addEventListener("DOMContentLoaded", () => {
       };
       type();
     };
-    typingEffect(headerTitle, ["Saraswati Puja Exhibition", "Explore Our Projects"], 100);
+    typingEffect(headerTitle, ["", "Explore Our Projects"], 100);
   }
 
   // === Scroll Animations (Intersection Observer) ===
