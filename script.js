@@ -88,7 +88,7 @@ document.addEventListener("DOMContentLoaded", () => {
       };
       type();
     };
-    typingEffect(headerTitle, ["", "Explore Our Projects"], 100);
+    typingEffect(headerTitle, ["Projects", "Explore Our Projects"], 100);
   }
 
   // === Scroll Animations (Intersection Observer) ===
