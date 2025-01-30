@@ -1,217 +1,140 @@
-/* General Reset */
-* {
+/* General Styles */
+body {
+    font-family: 'Arial', sans-serif;
     margin: 0;
     padding: 0;
-    box-sizing: border-box;
-    font-family: Arial, sans-serif;
-}
-
-/* Body Styling */
-body {
-    background-color: #f4f4f9; /* Light grey background (Light Mode) */
-    color: #333; /* Dark text (Light Mode) */
+    background-color: #f9f9f9;
+    color: #333;
     line-height: 1.6;
-    overflow-x: hidden; /* Prevent horizontal scroll issues */
-    transition: background-color 0.3s ease, color 0.3s ease;
 }
 
-/* Dark Mode */
-body.dark-theme {
-    background-color: #333; /* Dark background */
-    color: #f4f4f9; /* Light text */
-}
-
-body.dark-theme header {
-    background: linear-gradient(90deg, #1e2a38, #157cf1);
-}
-
-body.dark-theme footer {
-    background-color: #1e2a38;
-}
-
-body.dark-theme .project {
-    background: #444; /* Dark background for project cards */
-    color: #f4f4f9; /* Light text */
-}
-
-/* Header */
 header {
-    background: linear-gradient(90deg, #1e2a38, #157cf1); /* Cool gradient for header */
+    background: linear-gradient(135deg, #007BFF, #00C6FF);
     color: white;
+    padding: 20px 0;
     text-align: center;
-    padding: 30px 0;
-    position: sticky;
-    top: 0;
-    z-index: 1000;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
 }
 
 header h1 {
     font-size: 40px;
-    text-transform: uppercase;
-    margin-bottom: 10px;
+    font-weight: bold;
     letter-spacing: 2px;
-}
-
-header p {
-    font-size: 18px;
     margin: 0;
 }
 
-/* Footer */
-footer {
-    background-color: #1e2a38;
-    color: white;
-    text-align: center;
-    padding: 20px 0;
-    margin-top: 20px;
-}
-
-/* Projects Section */
-.projects {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center; /* Center align items */
-    align-items: center;
-    gap: 20px;
-    padding: 40px;
-    text-align: center; /* Ensure text inside is centered */
-}
-
-/* Individual Project Cards */
-.project {
-    width: 90%; /* Ensures proper width on mobile */
-    max-width: 400px; /* Prevents it from becoming too wide */
-    background: white;
-    border-radius: 10px;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+/* Section Styling */
+main {
     padding: 20px;
-    text-align: center; /* Ensures text is aligned */
-    transition: transform 0.3s, box-shadow 0.3s;
-    margin: 0 auto; /* Centering the project box */
+    max-width: 800px;
+    margin: 0 auto;
+    background-color: white;
+    border-radius: 8px;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+    animation: fadeIn 1s ease-in-out;
 }
 
-.project h3 {
-    font-size: 32px;
-    color: #157cf1;
+section {
+    margin-bottom: 20px;
+}
+
+section h2 {
+    font-size: 28px;
     margin-bottom: 10px;
+    color: #007BFF;
+    position: relative;
 }
 
-.project p {
-    font-size: 16px;
-    color: #555;
+section h2::after {
+    content: '';
+    width: 80px;
+    height: 4px;
+    background: #007BFF;
+    position: absolute;
+    bottom: -5px;
+    left: 0;
+}
+
+section p {
+    font-size: 18px;
     margin-bottom: 15px;
+    line-height: 1.8;
 }
 
-.project a {
-    text-decoration: none;
-    color: white;
-    background: #157cf1;
-    padding: 10px 20px;
-    border-radius: 5px;
-    font-weight: bold;
+section ul {
+    margin: 0;
+    padding-left: 20px;
+    list-style: disc;
+}
+
+section ul li {
+    font-size: 18px;
+    margin-bottom: 8px;
+    transition: all 0.3s;
+}
+.responsive-image {
+    max-width: 100%;
+    height: auto;
+}
+section ul li:hover {
+    color: #007BFF;
+    transform: translateX(5px);
+}
+
+/* Footer Styling */
+footer {
+    text-align: center;
+    padding: 10px 0;
+    background-color: #f1f1f1;
+    border-top: 1px solid #ddd;
+}
+
+footer p {
+    margin: 0;
+    font-size: 14px;
+    color: #777;
+}
+
+/* Button Styling (if needed) */
+button {
     display: inline-block;
-    transition: background-color 0.3s ease;
+    padding: 10px 20px;
+    background-color: #007BFF;
+    color: white;
+    font-size: 18px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: all 0.3s ease-in-out;
 }
 
-.project:hover {
-    transform: scale(1.05);
-    box-shadow: 0 8px 15px rgba(0, 0, 0, 0.2);
+button:hover {
+    background-color: #0056b3;
 }
 
-.project a:hover {
-    background: #0056b3;
-}
-
-/* Responsive Styles */
-@media (max-width: 767px) {
-    .projects {
-        flex-direction: column;
-        padding: 20px;
+/* Animations */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
     }
-
-    .project {
-        width: 90%;
-        text-align: center; /* Ensure text stays centered */
+    to {
+        opacity: 1;
+        transform: translateY(0);
     }
+}
 
+/* Responsive Design */
+@media (max-width: 768px) {
     header h1 {
-        font-size: 20px;
+        font-size: 28px;
     }
 
-    header p {
+    section h2 {
+        font-size: 22px;
+    }
+
+    section p, section ul li {
         font-size: 16px;
     }
-}
-
-@media (min-width: 768px) and (max-width: 991px) {
-    .project {
-        width: 45%;
-    }
-
-    header h1 {
-        font-size: 36px;
-    }
-}
-
-@media (min-width: 992px) {
-    .project {
-        width: 30%;
-    }
-
-    header h1 {
-        font-size: 40px;
-    }
-}
-
-/* Scroll-to-Top Button */
-#scroll-to-top {
-    position: fixed;
-    bottom: 20px;
-    right: 20px;
-    background: #157cf1;
-    color: white;
-    border: none;
-    padding: 10px 15px;
-    border-radius: 50%;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
-    cursor: pointer;
-    opacity: 0;
-    visibility: hidden;
-    transition: opacity 0.3s ease, visibility 0.3s ease;
-}
-
-#scroll-to-top.show {
-    opacity: 1;
-    visibility: visible;
-}
-
-#scroll-to-top:hover {
-    background: #0056b3;
-}
-
-/* Dark/Light Mode Toggle Icon */
-#theme-toggle {
-    cursor: pointer;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    background: none;
-    border: none;
-    transition: transform 0.3s ease;
-}
-
-#theme-toggle:hover {
-    transform: scale(1.1);
-}
-
-/* Optional Styles for PNG Icons */
-#theme-toggle img {
-    width: 30px;
-    height: 30px;
-    transition: transform 0.3s ease;
-}
-
-#theme-toggle.dark img {
-    transform: rotate(180deg);
 }
