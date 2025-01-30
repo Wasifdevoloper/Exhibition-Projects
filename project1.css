@@ -9,11 +9,11 @@ body {
 }
 
 header {
-    background: linear-gradient(135deg, #007BFF, #00C6FF);
+    background: linear-gradient(135deg, #0056b3, #004080);
     color: white;
     padding: 20px 0;
     text-align: center;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 4px 6px rgba(0, 64, 128, 0.5);
 }
 
 header h1 {
@@ -26,22 +26,22 @@ header h1 {
 /* Section Styling */
 main {
     padding: 20px;
-    max-width: 800px;
-    margin: 0 auto;
+    max-width: 1000px;
+    margin: 20px auto;
     background-color: white;
     border-radius: 8px;
-    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 8px 16px rgba(0, 64, 128, 0.5);
     animation: fadeIn 1s ease-in-out;
 }
 
 section {
-    margin-bottom: 20px;
+    margin-bottom: 30px;
 }
 
 section h2 {
     font-size: 28px;
     margin-bottom: 10px;
-    color: #007BFF;
+    color: #0056b3;
     position: relative;
 }
 
@@ -49,7 +49,7 @@ section h2::after {
     content: '';
     width: 80px;
     height: 4px;
-    background: #007BFF;
+    background: #0056b3;
     position: absolute;
     bottom: -5px;
     left: 0;
@@ -74,8 +74,29 @@ section ul li {
 }
 
 section ul li:hover {
-    color: #007BFF;
+    color: #0056b3;
     transform: translateX(5px);
+}
+
+/* Image Gallery */
+.image-gallery {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    justify-content: center;
+    margin-top: 20px;
+}
+
+.responsive-image {
+    max-width: 100%;
+    height: auto;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 64, 128, 0.5);
+}
+
+/* Dark Mode Adjustments */
+body.dark-theme .responsive-image {
+    box-shadow: 0 4px 8px rgba(0, 64, 128, 0.5);
 }
 
 /* Footer Styling */
@@ -96,7 +117,7 @@ footer p {
 button {
     display: inline-block;
     padding: 10px 20px;
-    background-color: #007BFF;
+    background-color: #0056b3;
     color: white;
     font-size: 18px;
     border: none;
@@ -106,7 +127,7 @@ button {
 }
 
 button:hover {
-    background-color: #0056b3;
+    background-color: #003366;
 }
 
 /* Animations */
