@@ -33,7 +33,123 @@
                 <p>Two ultrasonic sensors are placed at the entry and exit points of the bridge. These sensors detect the number of cars on the bridge. If the number of cars exceeds a predefined limit (e.g., 5 cars), the servo gate is activated to stop more cars from entering, and a buzzer sounds to alert the authorities. When cars leave the bridge, the system resets and allows new cars to enter.</p>
                 <div class="image-gallery">
                     <img src="bridge.jpg" class="responsive-image">
-                    
+                    <img src="" class="responsive-image">
+                    <img src="" class="responsive-image">
+                    <img src="" class="responsive-image">
+                </div>
+                <h3>Arduino Code</h3>
+                <div class="code-box">
+                    <pre>
+<span class="keyword">#include</span> &lt;Servo.h&gt;
+<span class="keyword">#include</span> &lt;Wire.h&gt;
+<span class="keyword">#include</span> &lt;LiquidCrystal_I2C.h&gt;
+
+// Define pins for ultrasonic sensors
+<span class="keyword">const</span> <span class="type">int</span> trigPin1 = 9;
+<span class="keyword">const</span> <span class="type">int</span> echoPin1 = 10;
+<span class="keyword">const</span> <span class="type">int</span> trigPin2 = 11;
+<span class="keyword">const</span> <span class="type">int</span> echoPin2 = 12;
+
+// Define pin for servo
+<span class="keyword">const</span> <span class="type">int</span> servoPin = 6;
+
+// Define pin for buzzer
+<span class="keyword">const</span> <span class="type">int</span> buzzerPin = 7;
+
+// Create Servo object
+<span class="type">Servo</span> myServo;
+
+// Create LCD object
+<span class="type">LiquidCrystal_I2C</span> lcd(0x27, 16, 2);
+
+// Variables to store distance readings
+<span class="type">long</span> duration1, distance1;
+<span class="type">long</span> duration2, distance2;
+
+// Variables to count cars
+<span class="type">int</span> carCount = 0;
+<span class="keyword">const</span> <span class="type">int</span> maxCars = 5;
+
+<span class="keyword">void</span> setup() {
+  // Initialize serial communication
+  <span class="function">Serial.begin</span>(9600);
+
+  // Initialize pins
+  <span class="function">pinMode</span>(trigPin1, <span class="constant">OUTPUT</span>);
+  <span class="function">pinMode</span>(echoPin1, <span class="constant">INPUT</span>);
+  <span class="function">pinMode</span>(trigPin2, <span class="constant">OUTPUT</span>);
+  <span class="function">pinMode</span>(echoPin2, <span class="constant">INPUT</span>);
+  <span class="function">pinMode</span>(buzzerPin, <span class="constant">OUTPUT</span>);
+
+  // Attach servo to pin
+  myServo.<span class="function">attach</span>(servoPin);
+
+  // Initialize LCD
+  lcd.<span class="function">begin</span>();
+  lcd.<span class="function">backlight</span>();
+  lcd.<span class="function">setCursor</span>(0, 0);
+  lcd.<span class="function">print</span>(<span class="string">"Bridge Overload"</span>);
+  lcd.<span class="function">setCursor</span>(0, 1);
+  lcd.<span class="function">print</span>(<span class="string">"Detection System"</span>);
+
+  // Set initial servo position
+  myServo.<span class="function">write</span>(0);
+  <span class="function">delay</span>(2000);
+  lcd.<span class="function">clear</span>();
+}
+
+<span class="keyword">void</span> loop() {
+  // Measure distance from sensor 1
+  <span class="function">digitalWrite</span>(trigPin1, <span class="constant">LOW</span>);
+  <span class="function">delayMicroseconds</span>(2);
+  <span class="function">digitalWrite</span>(trigPin1, <span class="constant">HIGH</span>);
+  <span class="function">delayMicroseconds</span>(10);
+  <span class="function">digitalWrite</span>(trigPin1, <span class="constant">LOW</span>);
+  duration1 = <span class="function">pulseIn</span>(echoPin1, <span class="constant">HIGH</span>);
+  distance1 = duration1 * 0.034 / 2;
+
+  // Measure distance from sensor 2
+  <span class="function">digitalWrite</span>(trigPin2, <span class="constant">LOW</span>);
+  <span class="function">delayMicroseconds</span>(2);
+  <span class="function">digitalWrite</span>(trigPin2, <span class="constant">HIGH</span>);
+  <span class="function">delayMicroseconds</span>(10);
+  <span class="function">digitalWrite</span>(trigPin2, <span class="constant">LOW</span>);
+  duration2 = <span class="function">pulseIn</span>(echoPin2, <span class="constant">HIGH</span>);
+  distance2 = duration2 * 0.034 / 2;
+
+  // Check if a car is detected by sensor 1
+  <span class="keyword">if</span> (distance1 < 20) {
+    carCount++;
+    <span class="function">delay</span>(1000); // Debounce delay
+  }
+
+  // Check if a car is detected by sensor 2
+  <span class="keyword">if</span> (distance2 < 20) {
+    carCount--;
+    <span class="function">delay</span>(1000); // Debounce delay
+  }
+
+  // Update LCD with car count
+  lcd.<span class="function">setCursor</span>(0, 0);
+  lcd.<span class="function">print</span>(<span class="string">"Cars on bridge:"</span>);
+  lcd.<span class="function">setCursor</span>(0, 1);
+  lcd.<span class="function">print</span>(carCount);
+
+  // Check if car count exceeds max limit
+  <span class="keyword">if</span> (carCount >= maxCars) {
+    // Activate servo gate and buzzer
+    myServo.<span class="function">write</span>(90); // Close gate
+    <span class="function">digitalWrite</span>(buzzerPin, <span class="constant">HIGH</span>); // Turn on buzzer
+  } <span class="keyword">else</span> {
+    // Deactivate servo gate and buzzer
+    myServo.<span class="function">write</span>(0); // Open gate
+    <span class="function">digitalWrite</span>(buzzerPin, <span class="constant">LOW</span>); // Turn off buzzer
+  }
+
+  // Add a small delay to avoid rapid updates
+  <span class="function">delay</span>(500);
+}
+                    </pre>
                 </div>
             </section>
 
