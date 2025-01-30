@@ -86,7 +86,7 @@ section ul li:hover {
     justify-content: center;
     margin-top: 20px;
 }
-
+/*responsive*/
 .responsive-image {
     max-width: 100%;
     height: auto;
