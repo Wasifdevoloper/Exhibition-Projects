@@ -95,7 +95,7 @@ section ul li:hover {
 }
 
 /* Image Styling */
-.responsive-image {
+img {
     max-width: 100%;
     height: auto;
     display: block;
@@ -144,4 +144,3 @@ footer p {
         font-size: 16px;
     }
 }
-g
