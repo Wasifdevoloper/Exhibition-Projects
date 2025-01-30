@@ -40,6 +40,12 @@ section {
 .responsive-image {
     max-width: 100%;
     height: auto;
+    border-radius: 15px; /* Adds the curve to the image */
+}
+
+.themed-border {
+    border: 5px solid #4CAF50; /* Adjust the color to match your theme */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Optional: Adds a subtle shadow */
 }
 section h2 {
     font-size: 28px;
