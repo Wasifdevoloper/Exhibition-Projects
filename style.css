@@ -15,23 +15,59 @@ body {
     transition: background-color 0.3s ease, color 0.3s ease;
 }
 
-/* Dark Mode */
+/* New Dark Mode */
 body.dark-theme {
-    background-color: #333; /* Dark background */
-    color: #f4f4f9; /* Light text */
+    background-color: #121212; /* Dark background */
+    color: #e0e0e0; /* Light text */
 }
 
-body.dark-theme header {
-    background: linear-gradient(90deg, #1e2a38, #157cf1);
-}
-
-body.dark-theme footer {
-    background-color: #1e2a38;
+body.dark-theme header, body.dark-theme footer {
+    background: #1f1f1f;
 }
 
 body.dark-theme .project {
-    background: #444; /* Dark background for project cards */
-    color: #f4f4f9; /* Light text */
+    background: #2c2c2c; /* Dark background for project cards */
+    color: #e0e0e0; /* Light text */
+}
+
+body.dark-theme .navbar, body.dark-theme .navbar-brand, body.dark-theme .nav-link {
+    background: #1f1f1f;
+    color: #e0e0e0;
+}
+
+body.dark-theme .btn-primary {
+    background-color: #157cf1;
+    border-color: #157cf1;
+}
+
+body.dark-theme .btn-primary:hover {
+    background-color: #0056b3;
+    border-color: #0056b3;
+}
+
+body.dark-theme .card {
+    background: #2c2c2c;
+    color: #e0e0e0;
+}
+
+body.dark-theme .card-title {
+    color: #157cf1;
+}
+
+body.dark-theme .card-text {
+    color: #e0e0e0;
+}
+
+body.dark-theme .toggle-label {
+    background-color: #333;
+}
+
+body.dark-theme .toggle-label .toggle-icon::before {
+    content: '🌙';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
 }
 
 /* Header */
@@ -44,6 +80,7 @@ header {
     top: 0;
     z-index: 1000;
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+    transition: background 0.3s ease;
 }
 
 header h1 {
@@ -51,11 +88,13 @@ header h1 {
     text-transform: uppercase;
     margin-bottom: 10px;
     letter-spacing: 2px;
+    animation: fadeInDown 1s ease;
 }
 
 header p {
     font-size: 18px;
     margin: 0;
+    animation: fadeInUp 1s ease;
 }
 
 /* Footer */
@@ -65,6 +104,7 @@ footer {
     text-align: center;
     padding: 20px 0;
     margin-top: 20px;
+    transition: background 0.3s ease;
 }
 
 /* Projects Section */
@@ -76,6 +116,7 @@ footer {
     gap: 20px;
     padding: 40px;
     text-align: center; /* Ensure text inside is centered */
+    animation: fadeIn 1s ease;
 }
 
 /* Individual Project Cards */
@@ -87,8 +128,9 @@ footer {
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
     padding: 20px;
     text-align: center; /* Ensures text is aligned */
-    transition: transform 0.3s, box-shadow 0.3s;
+    transition: transform 0.3s, box-shadow 0.3s, background 0.3s, color 0.3s;
     margin: 0 auto; /* Centering the project box */
+    animation: fadeInUp 1s ease;
 }
 
 .project h3 {
@@ -214,4 +256,127 @@ footer {
 
 #theme-toggle.dark img {
     transform: rotate(180deg);
+}
+
+/* Toggle Bar */
+.toggle-container {
+    position: relative;
+    display: inline-block;
+    width: 60px;
+    height: 34px;
+}
+
+.toggle-checkbox {
+    opacity: 0;
+    width: 0;
+    height: 0;
+}
+
+.toggle-label {
+    position: absolute;
+    cursor: pointer;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: #ccc;
+    transition: background-color 0.4s;
+    border-radius: 34px;
+}
+
+.toggle-label .toggle-icon {
+    position: absolute;
+    height: 26px;
+    width: 26px;
+    left: 4px;
+    bottom: 4px;
+    background-color: white;
+    transition: transform 0.4s;
+    border-radius: 50%;
+}
+
+.toggle-checkbox:checked + .toggle-label {
+    background-color: #333;
+}
+
+.toggle-checkbox:checked + .toggle-label .toggle-icon {
+    transform: translateX(26px);
+}
+
+body.light-theme .toggle-label {
+    background-color: yellow;
+}
+
+body.light-theme .toggle-label .toggle-icon::before {
+    content: '☀️';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+body.dark-theme .toggle-label {
+    background-color: #333;
+}
+
+body.dark-theme .toggle-label .toggle-icon::before {
+    content: '🌙';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+/* Keyframes for Animations */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes fadeInDown {
+    from {
+        opacity: 0;
+        transform: translateY(-20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes fadeInLeft {
+    from {
+        opacity: 0;
+        transform: translateX(-20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+@keyframes fadeInRight {
+    from {
+        opacity: 0;
+        transform: translateX(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
 }
