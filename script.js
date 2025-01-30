@@ -1,382 +1,182 @@
-/* General Reset */
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-    font-family: Arial, sans-serif;
-}
+// Wait for the DOM to fully load
+document.addEventListener("DOMContentLoaded", () => {
+  // Global Variables
+  const mainHeader = document.querySelector("header"); // Main header element
+  const subHeader = document.querySelector("nav"); // Navigation bar (sticky-top)
+  const scrollToTopBtn = document.getElementById("scroll-to-top");
+  const themeToggle = document.getElementById("theme-toggle");
+  const navLinks = document.querySelectorAll(".nav-link");
+  const sections = document.querySelectorAll("section");
+  const headerTitle = document.querySelector(".typing-effect");
+  const animateElements = document.querySelectorAll(".animate-on-scroll");
+  const navbarBrand = document.querySelector(".navbar-brand");
+  const navbarToggler = document.querySelector(".navbar-toggler");
 
-/* Body Styling */
-body {
-    background-color: #f4f4f9; /* Light grey background (Light Mode) */
-    color: #333; /* Dark text (Light Mode) */
-    line-height: 1.6;
-    overflow-x: hidden; /* Prevent horizontal scroll issues */
-    transition: background-color 0.3s ease, color 0.3s ease;
-}
+  // === Scroll-to-Top Button ===
+  scrollToTopBtn.addEventListener("click", () => {
+    window.scrollTo({ top: 0, behavior: "smooth" });
+  });
 
-/* New Dark Mode */
-body.dark-theme {
-    background-color: #121212; /* Dark background */
-    color: #e0e0e0; /* Light text */
-}
+  let lastScrollY = window.scrollY;
 
-body.dark-theme header, body.dark-theme footer {
-    background: #1f1f1f;
-}
+  window.addEventListener("scroll", () => {
+    // Show/Hide Scroll-to-Top Button
+    scrollToTopBtn.style.opacity = window.scrollY > 200 ? "1" : "0";
 
-body.dark-theme .project {
-    background: #2c2c2c; /* Dark background for project cards */
-    color: #e0e0e0; /* Light text */
-}
+    // Sticky Navbar on Scroll
+    subHeader.classList.toggle("sticky", window.scrollY > 100);
 
-body.dark-theme .navbar, body.dark-theme .navbar-brand, body.dark-theme .nav-link {
-    background: #1f1f1f;
-    color: #e0e0e0;
-}
-
-body.dark-theme .btn-primary {
-    background-color: #157cf1;
-    border-color: #157cf1;
-}
-
-body.dark-theme .btn-primary:hover {
-    background-color: #0056b3;
-    border-color: #0056b3;
-}
-
-body.dark-theme .card {
-    background: #2c2c2c;
-    color: #e0e0e0;
-}
-
-body.dark-theme .card-title {
-    color: #157cf1;
-}
-
-body.dark-theme .card-text {
-    color: #e0e0e0;
-}
-
-body.dark-theme .toggle-label {
-    background-color: #333;
-}
-
-body.dark-theme .toggle-label .toggle-icon::before {
-    content: '🌙';
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-}
-
-/* Header */
-header {
-    background: linear-gradient(90deg, #1e2a38, #157cf1); /* Cool gradient for header */
-    color: white;
-    text-align: center;
-    padding: 30px 0;
-    position: sticky;
-    top: 0;
-    z-index: 1000;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
-    transition: background 0.3s ease;
-}
-
-header h1 {
-    font-size: 40px;
-    text-transform: uppercase;
-    margin-bottom: 10px;
-    letter-spacing: 2px;
-    animation: fadeInDown 1s ease;
-}
-
-header p {
-    font-size: 18px;
-    margin: 0;
-    animation: fadeInUp 1s ease;
-}
-
-/* Footer */
-footer {
-    background-color: #1e2a38;
-    color: white;
-    text-align: center;
-    padding: 20px 0;
-    margin-top: 20px;
-    transition: background 0.3s ease;
-}
-
-/* Projects Section */
-.projects {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center; /* Center align items */
-    align-items: center;
-    gap: 20px;
-    padding: 40px;
-    text-align: center; /* Ensure text inside is centered */
-    animation: fadeIn 1s ease;
-}
-
-/* Individual Project Cards */
-.project {
-    width: 90%; /* Ensures proper width on mobile */
-    max-width: 400px; /* Prevents it from becoming too wide */
-    background: white;
-    border-radius: 10px;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-    padding: 20px;
-    text-align: center; /* Ensures text is aligned */
-    transition: transform 0.3s, box-shadow 0.3s, background 0.3s, color 0.3s;
-    margin: 0 auto; /* Centering the project box */
-    animation: fadeInUp 1s ease;
-}
-
-.project h3 {
-    font-size: 32px;
-    color: #157cf1;
-    margin-bottom: 10px;
-}
-
-.project p {
-    font-size: 16px;
-    color: #555;
-    margin-bottom: 15px;
-}
-
-.project a {
-    text-decoration: none;
-    color: white;
-    background: #157cf1;
-    padding: 10px 20px;
-    border-radius: 5px;
-    font-weight: bold;
-    display: inline-block;
-    transition: background-color 0.3s ease;
-}
-
-.project:hover {
-    transform: scale(1.05);
-    box-shadow: 0 8px 15px rgba(0, 0, 0, 0.2);
-}
-
-.project a:hover {
-    background: #0056b3;
-}
-
-/* Responsive Styles */
-@media (max-width: 767px) {
-    .projects {
-        flex-direction: column;
-        padding: 20px;
+    // Hide Main Header, Sub Header, and Navbar Brand on Scroll Down, Show on Scroll Up
+    if (window.scrollY > lastScrollY) {
+      // Scrolling down
+      mainHeader.style.transform = "translateY(-100%)"; // Hide main header
+      subHeader.style.transform = "translateY(-100%)"; // Hide sub header
+      navbarBrand.style.transform = "translateY(-100%)"; // Hide navbar brand
+      navbarToggler.style.transform = "translateY(0)"; // Keep navbar toggler visible
+    } else {
+      // Scrolling up
+      mainHeader.style.transform = "translateY(0)"; // Show main header
+      subHeader.style.transform = "translateY(0)"; // Show sub header
+      navbarBrand.style.transform = "translateY(0)"; // Show navbar brand
     }
+    lastScrollY = window.scrollY;
+  });
 
-    .project {
-        width: 90%;
-        text-align: center; /* Ensure text stays centered */
-    }
+  // === Smooth Scrolling for Navigation Links ===
+  navLinks.forEach((link) => {
+    link.addEventListener("click", (e) => {
+      e.preventDefault();
+      const targetSection = document.querySelector(link.getAttribute("href"));
+      targetSection.scrollIntoView({ behavior: "smooth" });
+    });
+  });
 
-    header h1 {
-        font-size: 20px;
-    }
+  // === Active Navigation Links on Scroll ===
+  window.addEventListener("scroll", () => {
+    let currentSection = "";
+    sections.forEach((section) => {
+      const sectionTop = section.offsetTop - 70;
+      if (window.pageYOffset >= sectionTop) {
+        currentSection = section.getAttribute("id");
+      }
+    });
+    navLinks.forEach((link) => {
+      link.classList.remove("active");
+      if (link.getAttribute("href") === `#${currentSection}`) {
+        link.classList.add("active");
+      }
+    });
+  });
 
-    header p {
-        font-size: 16px;
-    }
-}
+  // === New Dark and Light Mode Toggle ===
+  const setTheme = (isDark) => {
+    document.body.classList.toggle("dark-theme", isDark);
+    document.body.classList.toggle("light-theme", !isDark);
+  };
 
-@media (min-width: 768px) and (max-width: 991px) {
-    .project {
-        width: 45%;
-    }
+  const currentTheme = localStorage.getItem("theme") || "light";
+  setTheme(currentTheme === "dark");
 
-    header h1 {
-        font-size: 36px;
-    }
-}
+  themeToggle.addEventListener("change", () => {
+    const isDark = themeToggle.checked;
+    setTheme(isDark);
+    localStorage.setItem("theme", isDark ? "dark" : "light");
+  });
 
-@media (min-width: 992px) {
-    .project {
-        width: 30%;
-    }
+  // === Typing Effect (One Cycle) ===
+  if (headerTitle) {
+    const typingEffect = (element, textArray, speed) => {
+      let textIndex = 0;
+      let charIndex = 0;
+      const type = () => {
+        if (charIndex < textArray[textIndex].length) {
+          element.innerHTML += textArray[textIndex].charAt(charIndex);
+          charIndex++;
+          setTimeout(type, speed);
+        }
+      };
+      type();
+    };
+    typingEffect(headerTitle, [" Projects", "Explore Our Projects"], 100);
+  }
 
-    header h1 {
-        font-size: 40px;
-    }
-}
+  // === Scroll Animations (Intersection Observer) ===
+  const observerOptions = { threshold: 0.2 };
 
-/* Scroll-to-Top Button */
-#scroll-to-top {
-    position: fixed;
-    bottom: 20px;
-    right: 20px;
-    background: #157cf1;
-    color: white;
-    border: none;
-    padding: 10px 15px;
-    border-radius: 50%;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
-    cursor: pointer;
-    opacity: 0;
-    visibility: hidden;
-    transition: opacity 0.3s ease, visibility 0.3s ease;
-}
+  const animateOnScrollObserver = new IntersectionObserver((entries) => {
+    entries.forEach((entry) => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add("animate");
+      }
+    });
+  }, observerOptions);
 
-#scroll-to-top.show {
-    opacity: 1;
-    visibility: visible;
-}
+  animateElements.forEach((el) => animateOnScrollObserver.observe(el));
 
-#scroll-to-top:hover {
-    background: #0056b3;
-}
+  // === Accordion Functionality ===
+  const accordions = document.querySelectorAll(".accordion");
+  accordions.forEach((accordion) => {
+    accordion.addEventListener("click", () => {
+      accordion.classList.toggle("active");
+      const panel = accordion.nextElementSibling;
+      panel.style.maxHeight = panel.style.maxHeight ? null : `${panel.scrollHeight}px`;
+    });
+  });
 
-/* Dark/Light Mode Toggle Icon */
-#theme-toggle {
-    cursor: pointer;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    background: none;
-    border: none;
-    transition: transform 0.3s ease;
-}
+  // === Buttons with Animations ===
+  const animatedButtons = document.querySelectorAll(".btn-animated");
+  animatedButtons.forEach((btn) => {
+    btn.addEventListener("mouseover", () => {
+      btn.classList.add("pulse");
+    });
+    btn.addEventListener("mouseout", () => {
+      btn.classList.remove("pulse");
+    });
+  });
 
-#theme-toggle:hover {
-    transform: scale(1.1);
-}
+  // === Animated Navbar Toggle for Mobile ===
+  const menuToggle = document.querySelector("#menu-toggle");
+  const mobileMenu = document.querySelector(".mobile-menu");
 
-/* Optional Styles for PNG Icons */
-#theme-toggle img {
-    width: 30px;
-    height: 30px;
-    transition: transform 0.3s ease;
-}
+  if (menuToggle && mobileMenu) {
+    menuToggle.addEventListener("click", () => {
+      mobileMenu.classList.toggle("open");
+      menuToggle.classList.toggle("active");
+    });
 
-#theme-toggle.dark img {
-    transform: rotate(180deg);
-}
+    mobileMenu.querySelectorAll("a").forEach((link) => {
+      link.addEventListener("click", () => {
+        mobileMenu.classList.remove("open");
+        menuToggle.classList.remove("active");
+      });
+    });
+  }
 
-/* Toggle Bar */
-.toggle-container {
-    position: relative;
-    display: inline-block;
-    width: 60px;
-    height: 34px;
-}
+  // === Button Ripple Effect ===
+  document.querySelectorAll(".btn-ripple").forEach((button) => {
+    button.addEventListener("click", function (e) {
+      const x = e.clientX - e.target.offsetLeft;
+      const y = e.clientY - e.target.offsetTop;
 
-.toggle-checkbox {
-    opacity: 0;
-    width: 0;
-    height: 0;
-}
+      const ripple = document.createElement("span");
+      ripple.style.left = `${x}px`;
+      ripple.style.top = `${y}px`;
+      ripple.classList.add("ripple");
+      this.appendChild(ripple);
 
-.toggle-label {
-    position: absolute;
-    cursor: pointer;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    background-color: #ccc;
-    transition: background-color 0.4s;
-    border-radius: 34px;
-}
+      setTimeout(() => ripple.remove(), 600);
+    });
+  });
 
-.toggle-label .toggle-icon {
-    position: absolute;
-    height: 26px;
-    width: 26px;
-    left: 4px;
-    bottom: 4px;
-    background-color: white;
-    transition: transform 0.4s;
-    border-radius: 50%;
-}
-
-.toggle-checkbox:checked + .toggle-label {
-    background-color: #333;
-}
-
-.toggle-checkbox:checked + .toggle-label .toggle-icon {
-    transform: translateX(26px);
-}
-
-body.light-theme .toggle-label {
-    background-color: yellow;
-}
-
-body.light-theme .toggle-label .toggle-icon::before {
-    content: '☀️';
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-}
-
-body.dark-theme .toggle-label {
-    background-color: #333;
-}
-
-body.dark-theme .toggle-label .toggle-icon::before {
-    content: '🌙';
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-}
-
-/* Keyframes for Animations */
-@keyframes fadeIn {
-    from {
-        opacity: 0;
-    }
-    to {
-        opacity: 1;
-    }
-}
-
-@keyframes fadeInUp {
-    from {
-        opacity: 0;
-        transform: translateY(20px);
-    }
-    to {
-        opacity: 1;
-        transform: translateY(0);
-    }
-}
-
-@keyframes fadeInDown {
-    from {
-        opacity: 0;
-        transform: translateY(-20px);
-    }
-    to {
-        opacity: 1;
-        transform: translateY(0);
-    }
-}
-
-@keyframes fadeInLeft {
-    from {
-        opacity: 0;
-        transform: translateX(-20px);
-    }
-    to {
-        opacity: 1;
-        transform: translateX(0);
-    }
-}
-
-@keyframes fadeInRight {
-    from {
-        opacity: 0;
-        transform: translateX(20px);
-    }
-    to {
-        opacity: 1;
-        transform: translateX(0);
-    }
-}
+  // === Image Zoom Animation ===
+  const zoomImages = document.querySelectorAll(".zoom-on-hover");
+  zoomImages.forEach((img) => {
+    img.addEventListener("mouseover", () => {
+      img.style.transform = "scale(1.1)";
+      img.style.transition = "transform 0.3s ease-in-out";
+    });
+    img.addEventListener("mouseout", () => {
+      img.style.transform = "scale(1)";
+    });
+  });
+});
