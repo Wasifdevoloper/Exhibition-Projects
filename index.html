@@ -4,71 +4,148 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Bridge Overload Detection System</title>
- 
-    <link rel="stylesheet" href="project1.css"> <!-- Link to the new project1.css for custom styles -->
+    <title>Saraswati Puja Exhibition</title>
+
+    <!-- Link to Bootstrap CSS from CDN -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Link to Custom CSS -->
+    <link href="style.css" rel="stylesheet">
+
+    <!-- Google Fonts for Ripple Effect (Optional) -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
 </head>
 
-
 <body>
+
     <!-- Header Section -->
-    <header>
-        <div class="container">
-            <h1>Bridge Overload Detection System</h1>
-        </div>
+    <header class="bg-dark text-white py-4 text-center">
+        <h1 class="typing-effect">Saraswati Puja Exhibition</h1>
+        <p class="lead">Explore Our Projects</p>
     </header>
 
-    <!-- Main Content Section -->
-    <main>
+    <!-- Navigation Bar -->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark sticky-top">
         <div class="container">
-            <!-- Introduction Section -->
-            <section class="project-section">
-                <h2>Introduction</h2>
-                <p>This system detects overload on bridges to prevent accidents by using sensors and a servo-controlled gate mechanism.</p>
-            </section>
-
-            <!-- Working Principle Section -->
-            <section class="project-section">
-                <h2>Working Principle</h2>
-                <p>Two ultrasonic sensors detect the number of cars on the bridge. If 5 cars are detected, the servo gate is activated, and the buzzer sounds. When cars leave, the system resets.</p>
-               <div>
-   
-                <!-- ...existing code... -->
-<img src="bridge.jpg" alt="Circuit Diagram" class="responsive-image">
-<!-- ...existing code... -->
-                </div>
-            </section>
-
-            <!-- Components Used Section -->
-            <section class="project-section">
-                <h2>Components Used</h2>
-                <ul>
-                    <li>2 x Ultrasonic Sensors</li>
-                    <li>1 x I2C LCD Display</li>
-                    <li>1 x Arduino UNO</li>
-                    <li>1 x Servo</li>
-                    <li>1 x Buzzer</li>
+            <a class="navbar-brand" href="#">Exhibition</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+                aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item"><a class="nav-link active" href="#projects">Projects</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#team">Team</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#contact">Contact</a></li>
                 </ul>
-            </section>
-
-            <!-- Applications Section -->
-            <section class="project-section">
-                <h2>Applications</h2>
-                <ul>
-                    <li>Bridge safety monitoring</li>
-                    <li>Preventing accidents due to overloading</li>
-                    <li>Traffic management solutions</li>
-                </ul>
-            </section>
+            </div>
         </div>
+    </nav>
+
+    <!-- Main Content -->
+    <main class="container my-5">
+        <!-- Projects Section -->
+        <section id="projects" class="row text-center">
+            <h2 class="mb-4">Our Projects</h2>
+
+            <!-- Project 1 -->
+            <div class="col-md-4 project animate-on-scroll">
+                <div class="card border-0 shadow-sm">
+                    <div class="card-body">
+                        <h3 class="card-title">Bridge Overload Detection System</h3>
+                        <p class="card-text">A system to monitor and prevent accidents on bridges.</p>
+                        <a href="project1.html" class="btn btn-primary btn-ripple">View Project</a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Project 2 -->
+            <div class="col-md-4 project animate-on-scroll">
+                <div class="card border-0 shadow-sm">
+                    <div class="card-body">
+                        <h3 class="card-title">Bluetooth Controlled Home Appliances</h3>
+                        <p class="card-text">Control your home appliances via Bluetooth.</p>
+                        <a href="project2.html" class="btn btn-primary btn-ripple">View Project</a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Project 3 -->
+            <div class="col-md-4 project animate-on-scroll">
+                <div class="card border-0 shadow-sm">
+                    <div class="card-body">
+                        <h3 class="card-title">Smart Attendance Tracker</h3>
+                        <p class="card-text">Automatically track attendance using facial recognition.</p>
+                        <a href="project3.html" class="btn btn-primary btn-ripple">View Project</a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Additional Projects -->
+            <div class="col-md-4 project animate-on-scroll">
+                <div class="card border-0 shadow-sm">
+                    <div class="card-body">
+                        <h3 class="card-title">Smart Fire Detection Alarm</h3>
+                        <p class="card-text">IoT-based fire and gas detection.</p>
+                        <a href="project4.html" class="btn btn-primary btn-ripple">View Project</a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4 project animate-on-scroll">
+                <div class="card border-0 shadow-sm">
+                    <div class="card-body">
+                        <h3 class="card-title">AgriNova IoT Sphere</h3>
+                        <p class="card-text">Automated IoT-based smart irrigation.</p>
+                        <a href="project5.html" class="btn btn-primary btn-ripple">View Project</a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4 project animate-on-scroll">
+                <div class="card border-0 shadow-sm">
+                    <div class="card-body">
+                        <h3 class="card-title">AI-Powered Irrigation System</h3>
+                        <p class="card-text">Automated AI-based smart irrigation.</p>
+                        <a href="project6.html" class="btn btn-primary btn-ripple">View Project</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Team Section -->
+        <section id="team" class="my-5">
+            <h3>Project Team Members</h3>
+            <ul class="list-unstyled">
+                <li>Wasif Azim</li>
+                <li>Md. Rehan Ahamed</li>
+                <li>Md Sonal Mostafa Newaz</li>
+                <li>Mehul Sarkar</li>
+                <li>Ariyan Haque</li>
+            </ul>
+        </section>
+
+        <!-- Contact Section -->
+        <section id="contact" class="my-5 text-center">
+            <h3>Contact Us</h3>
+            <p>Email: <a href="mailto:exhibition2025@school.com">robocraft130@gmail.com</a></p>
+            <p>Phone: <a href="tel:+911234567890">9153077332</a></p>
+        </section>
     </main>
 
-    <!-- Footer Section -->
-    <footer>
-        <div class="container">
-            <p>&copy; 2025 Saraswati Puja Exhibition Team</p>
-        </div>
+    <!-- Scroll-to-Top Button -->
+    <button id="scroll-to-top" class="btn btn-dark position-fixed bottom-0 end-0 m-4">↑ Top</button>
+
+    <!-- Footer -->
+    <footer class="bg-dark text-white py-3 text-center">
+        <p>&copy; Wasif Azim. All Rights Reserved.</p>
+        <button id="theme-toggle" class="btn btn-secondary">Dark Mode</button>
     </footer>
+
+    <!-- Bootstrap JS and Popper.js -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
+
+    <!-- Custom JS -->
+    <script src="script.js"></script>
+
 </body>
 
 </html>
