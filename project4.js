@@ -11,9 +11,9 @@ document.querySelectorAll('nav ul li a').forEach(link => {
 const scrollToTopBtn = document.getElementById('scroll-to-top');
 window.addEventListener('scroll', () => {
     if (window.scrollY > 300) {
-        scrollToTopBtn.classList.add('show');
+        scrollToTopBtn.style.display = 'block';
     } else {
-        scrollToTopBtn.classList.remove('show');
+        scrollToTopBtn.style.display = 'none';
     }
 });
 scrollToTopBtn.addEventListener('click', () => {
@@ -25,7 +25,6 @@ const themeToggle = document.getElementById("theme-toggle");
 const setTheme = (isDark) => {
     document.body.classList.toggle("dark-theme", isDark);
     document.body.classList.toggle("light-theme", !isDark);
-    themeToggle.checked = isDark;
 };
 
 const currentTheme = localStorage.getItem("theme") || "light";
@@ -35,13 +34,6 @@ themeToggle.addEventListener("change", () => {
     const isDark = themeToggle.checked;
     setTheme(isDark);
     localStorage.setItem("theme", isDark ? "dark" : "light");
-});
-
-// Ensure theme is synchronized across pages
-window.addEventListener("storage", (event) => {
-    if (event.key === "theme") {
-        setTheme(event.newValue === "dark");
-    }
 });
 
 // Scroll Animation

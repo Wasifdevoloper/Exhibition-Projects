@@ -37,13 +37,6 @@ themeToggle.addEventListener("change", () => {
     localStorage.setItem("theme", isDark ? "dark" : "light");
 });
 
-// Ensure theme is synchronized across pages
-window.addEventListener("storage", (event) => {
-    if (event.key === "theme") {
-        setTheme(event.newValue === "dark");
-    }
-});
-
 // Scroll Animation
 const animateOnScrollElements = document.querySelectorAll('.animate-on-scroll');
 const observer = new IntersectionObserver(entries => {
