@@ -15,7 +15,7 @@ body.dark-theme {
 }
 
 header {
-    background: linear-gradient(135deg, #D2B48C, #F4A460); /* Light brown gradient */
+    background: linear-gradient(135deg, #6F42C1, #D7BDE2); /* Purple gradient */
     color: white;
     padding: 20px 0;
     text-align: center;
@@ -37,11 +37,7 @@ body.dark-theme header {
     max-width: 100%;
     height: auto;
     border-radius: 15px; /* Adds the curve to the image */
-}
-
-.themed-border {
-    border: 5px solid #4CAF50; /* Adjust the color to match your theme */
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Optional: Adds a subtle shadow */
+    box-shadow: 0 4px 8px rgba(75, 0, 130, 0.8); /* High opacity purple box shadow */
 }
 
 /* Section Styling */
@@ -66,7 +62,7 @@ section {
 section h2 {
     font-size: 28px;
     margin-bottom: 10px;
-    color: #D2B48C;
+    color: #6F42C1;
     position: relative;
 }
 
@@ -74,7 +70,7 @@ section h2::after {
     content: '';
     width: 80px;
     height: 4px;
-    background: #D2B48C;
+    background: #6F42C1;
     position: absolute;
     bottom: -5px;
     left: 0;
@@ -103,7 +99,7 @@ section ul li {
 }
 
 section ul li:hover {
-    color: #D2B48C;
+    color: #6F42C1;
     transform: translateX(5px);
 }
 
@@ -137,7 +133,7 @@ body.dark-theme footer p {
 button {
     display: inline-block;
     padding: 10px 20px;
-    background-color: #D2B48C;
+    background-color: #6F42C1;
     color: white;
     font-size: 18px;
     border: none;
@@ -147,7 +143,7 @@ button {
 }
 
 button:hover {
-    background-color: #1e7e34;
+    background-color: #5a3791;
 }
 
 body.dark-theme button {
