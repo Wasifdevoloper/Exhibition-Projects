@@ -55,3 +55,21 @@ const observer = new IntersectionObserver(entries => {
 }, { threshold: 0.5 });
 
 animateOnScrollElements.forEach(element => observer.observe(element));
+
+// Read More / Read Less Feature
+const readMoreBtn = document.getElementById('read-more-btn');
+const cppCode = document.getElementById('cpp-code');
+
+cppCode.style.maxHeight = '200px'; // Default to "Read Less" mode
+
+readMoreBtn.addEventListener('click', () => {
+    if (readMoreBtn.textContent === 'Read More') {
+        cppCode.style.maxHeight = 'none';
+        readMoreBtn.textContent = 'Read Less';
+    } else {
+        cppCode.style.maxHeight = '200px'; // Adjust this value as needed
+        readMoreBtn.textContent = 'Read More';
+        cppCode.scrollIntoView({ behavior: 'smooth' });
+    }
+    cppCode.classList.toggle('expanded');
+});
