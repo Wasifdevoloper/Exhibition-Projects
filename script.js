@@ -17,6 +17,14 @@ document.addEventListener("DOMContentLoaded", () => {
     window.scrollTo({ top: 0, behavior: "smooth" });
   });
 
+  window.addEventListener("scroll", () => {
+    if (window.scrollY > 300) {
+      scrollToTopBtn.classList.add("show");
+    } else {
+      scrollToTopBtn.classList.remove("show");
+    }
+  });
+
   let lastScrollY = window.scrollY;
 
   window.addEventListener("scroll", () => {
@@ -113,6 +121,7 @@ document.addEventListener("DOMContentLoaded", () => {
   const setTheme = (isDark) => {
     document.body.classList.toggle("dark-theme", isDark);
     document.body.classList.toggle("light-theme", !isDark);
+    themeToggle.checked = isDark;
   };
 
   const currentTheme = localStorage.getItem("theme") || "light";
@@ -122,6 +131,13 @@ document.addEventListener("DOMContentLoaded", () => {
     const isDark = themeToggle.checked;
     setTheme(isDark);
     localStorage.setItem("theme", isDark ? "dark" : "light");
+  });
+
+  // Ensure theme is synchronized across pages
+  window.addEventListener("storage", (event) => {
+    if (event.key === "theme") {
+      setTheme(event.newValue === "dark");
+    }
   });
 
   // === Typing Effect (One Cycle) ===
