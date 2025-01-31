@@ -76,10 +76,19 @@ header {
     color: white;
     text-align: center;
     padding: 30px 0;
+    position: sticky;
     top: 0;
     z-index: 1000;
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
-    transition: background 0.3s ease;
+    transition: background 0.3s ease, top 0.3s ease; /* Added transition for smooth animation */
+}
+
+header.hidden {
+    top: -100px; /* Hide header by moving it up */
+}
+
+.navbar {
+    transition: top 0.3s ease; /* Smooth transition for navbar */
 }
 
 header h1 {
@@ -132,36 +141,9 @@ footer {
     animation: fadeInUp 1s ease;
 }
 
-.project h3 {
-    font-size: 32px;
-    color: #157cf1;
-    margin-bottom: 10px;
-}
-
-.project p {
-    font-size: 16px;
-    color: #555;
-    margin-bottom: 15px;
-}
-
-.project a {
-    text-decoration: none;
-    color: white;
-    background: #157cf1;
-    padding: 10px 20px;
-    border-radius: 5px;
-    font-weight: bold;
-    display: inline-block;
-    transition: background-color 0.3s ease;
-}
-
-.project:hover {
-    transform: scale(1.05);
+.project.zoom-in {
+    transform: scale(1.05); /* Zoom-in effect */
     box-shadow: 0 8px 15px rgba(0, 0, 0, 0.2);
-}
-
-.project a:hover {
-    background: #0056b3;
 }
 
 /* Responsive Styles */
@@ -205,14 +187,15 @@ footer {
     }
 }
 
-/* Scroll-to-Top Button */
+/* Ensure the footer toggle container is responsive */
+footer .toggle-container {
+    margin-top: 10px;
+}
+
+/* Ensure the scroll-to-top button is responsive */
 #scroll-to-top {
-    position: fixed;
     bottom: 20px;
     right: 20px;
-    background: #157cf1;
-    color: white;
-    border: none;
     padding: 10px 15px;
     border-radius: 50%;
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
@@ -324,6 +307,18 @@ body.dark-theme .toggle-label .toggle-icon::before {
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
+}
+
+/* Theme Toggle Bar */
+.theme-toggle-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 20px;
+}
+
+.theme-toggle-container .toggle-container {
+    margin-left: 10px;
 }
 
 /* Keyframes for Animations */
