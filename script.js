@@ -42,6 +42,47 @@ document.addEventListener("DOMContentLoaded", () => {
     lastScrollY = window.scrollY;
   });
 
+  // Hide and Show Header on Scroll
+  let lastScrollTop = 0;
+  const header = document.querySelector('header');
+  const navbar = document.querySelector('.navbar');
+  const projects = document.querySelectorAll('.project');
+
+  window.addEventListener('scroll', () => {
+    let scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+    if (scrollTop > lastScrollTop) {
+      // Scroll down
+      header.classList.add('hidden');
+      navbar.style.top = '0';
+    } else {
+      // Scroll up
+      header.classList.remove('hidden');
+      navbar.style.top = '60px'; // Adjust based on header height
+    }
+    lastScrollTop = scrollTop;
+
+    // Zoom-in effect for the project card closest to the center of the viewport
+    let closestProject = null;
+    let closestDistance = Infinity;
+    const viewportCenter = window.innerHeight / 2;
+
+    projects.forEach(project => {
+      const projectRect = project.getBoundingClientRect();
+      const projectCenter = projectRect.top + projectRect.height / 2;
+      const distance = Math.abs(viewportCenter - projectCenter);
+
+      if (distance < closestDistance) {
+        closestDistance = distance;
+        closestProject = project;
+      }
+    });
+
+    projects.forEach(project => project.classList.remove('zoom-in'));
+    if (closestProject) {
+      closestProject.classList.add('zoom-in');
+    }
+  });
+
   // === Smooth Scrolling for Navigation Links ===
   navLinks.forEach((link) => {
     link.addEventListener("click", (e) => {
