@@ -306,3 +306,23 @@ body.dark-theme .toggle-label .toggle-icon::before {
 .theme-toggle-container .toggle-container {
     margin-left: 10px;
 }
+
+/* Image Gallery */
+.image-gallery {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    justify-content: center;
+    margin-top: 20px;
+}
+
+.responsive-image {
+    max-width: 100%;
+    height: auto;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(32, 178, 170, 0.8); /* High opacity sea green box shadow */
+}
+
+body.dark-theme .responsive-image {
+    box-shadow: 0 4px 8px rgba(32, 178, 170, 0.8);
+}
