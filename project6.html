@@ -4,51 +4,103 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>AI-Powered Irrigation System</title>
- 
-    <link rel="stylesheet" href="project3.css">
+    <link rel="stylesheet" href="project6.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css">
 </head>
 <body>
+    <!-- Header Section -->
     <header>
-        <h1>AI-Powered Irrigation System</h1>
+        <div class="container">
+            <h1>AI-Powered Irrigation System</h1>
+        </div>
     </header>
+
+    <!-- Navigation Bar -->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark sticky-top">
+        <div class="container">
+            <a class="navbar-brand" href="#">Project</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+                aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item"><a class="nav-link active" href="#introduction">Introduction</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#working-principle">Working Principle</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#components-used">Components Used</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#applications">Applications</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Main Content Section -->
     <main>
-        <section>
-            <h2>Introduction</h2>
-            <p>AI-powered system optimizes irrigation by analyzing weather, soil moisture, and crop data for real-time decisions.</p>
-        </section>
-        <section>
-            <h2>Working Principle</h2>
-            <p>The AI-powered system analyzes weather forecasts, soil moisture, and crop type data in real-time. It adjusts irrigation schedules by activating pumps only when necessary, ensuring efficient water usage and providing crops with the optimal amount of water.</p>
-  
-<!-- ...existing code... -->
-<img src="agrinova.jpg" alt="Circuit Diagram" class="responsive-image themed-border"width=620>
-<!-- ...existing code... -->
-        </section>
-        <section>
-            <h2>Components Used</h2>
-            <ul>
-                <li>Raspberry Pi 3</li>
-                <li>Arduino Mega</li>
-                <li>Soil Moisture Sensor</li>
-                <li>AI Model (trained for crop-specific irrigation) or API</li>
-                <li>Water Pump</li>
-                <li>DHT11 Sensor</li>
-                <li>Relays</li>
-                <li>AC Bulb</li>
-            </ul>
-        </section>
-        <section>
-            <h2>Applications</h2>
-            <ul>
-                <li>Water Conservation: Minimizes water wastage.</li>
-                <li>Improved Crop Yield: Optimizes crop growth.</li>
-                <li>Cost-Effective: Reduces water expenses.</li>
-                <li>Remote Monitoring: Enables easy system control.</li>
-            </ul>
-        </section>
+        <div class="container">
+            <!-- Introduction Section -->
+            <section id="introduction" class="project-section animate-on-scroll">
+                <h2>Introduction</h2>
+                <p>AI-powered system optimizes irrigation by analyzing weather, soil moisture, and crop data for real-time decisions.</p>
+            </section>
+
+            <!-- Working Principle Section -->
+            <section id="working-principle" class="project-section animate-on-scroll">
+                <h2>Working Principle</h2>
+                <p>The AI-powered system analyzes weather forecasts, soil moisture, and crop type data in real-time. It adjusts irrigation schedules by activating pumps only when necessary, ensuring efficient water usage and providing crops with the optimal amount of water.</p>
+                <div>
+                    <img src="agrinova.jpg" alt="Circuit Diagram" class="responsive-image themed-border" width="620">
+                </div>
+            </section>
+
+            <!-- Components Used Section -->
+            <section id="components-used" class="project-section animate-on-scroll">
+                <h2>Components Used</h2>
+                <ul>
+                    <li>Raspberry Pi 3</li>
+                    <li>Arduino Mega</li>
+                    <li>Soil Moisture Sensor</li>
+                    <li>AI Model (trained for crop-specific irrigation) or API</li>
+                    <li>Water Pump</li>
+                    <li>DHT11 Sensor</li>
+                    <li>Relays</li>
+                    <li>AC Bulb</li>
+                </ul>
+            </section>
+
+            <!-- Applications Section -->
+            <section id="applications" class="project-section animate-on-scroll">
+                <h2>Applications</h2>
+                <ul>
+                    <li>Water Conservation: Minimizes water wastage.</li>
+                    <li>Improved Crop Yield: Optimizes crop growth.</li>
+                    <li>Cost-Effective: Reduces water expenses.</li>
+                    <li>Remote Monitoring: Enables easy system control.</li>
+                </ul>
+            </section>
+        </div>
     </main>
+
+    <!-- Scroll-to-Top Button -->
+    <button id="scroll-to-top" class="btn btn-dark position-fixed bottom-0 end-0 m-4">↑ Top</button>
+
+    <!-- Footer Section -->
     <footer>
-        <p>&copy; Wasif Azim</p>
+        <div class="container">
+            <p>&copy; Wasif Azim</p>
+
+            <div class="toggle-container">
+                <input type="checkbox" id="theme-toggle" class="toggle-checkbox">
+                <label for="theme-toggle" class="toggle-label">
+                    <span class="toggle-icon"></span>
+                </label>
+            </div>
+        </div>
     </footer>
+
+    <!-- Bootstrap JS and Popper.js -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
+
+    <!-- Custom JS -->
+    <script src="project6.js"></script>
 </body>
 </html>
