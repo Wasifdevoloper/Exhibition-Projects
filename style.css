@@ -194,8 +194,12 @@ footer .toggle-container {
 
 /* Ensure the scroll-to-top button is responsive */
 #scroll-to-top {
+    position: fixed;
     bottom: 20px;
     right: 20px;
+    background: #157cf1;
+    color: white;
+    border: none;
     padding: 10px 15px;
     border-radius: 50%;
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
