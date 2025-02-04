@@ -1,0 +1,312 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Saraswati Puja Exhibition</title>
+
+    <!-- Link to Bootstrap CSS from CDN -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Link to Custom CSS -->
+    <link href="style.css" rel="stylesheet">
+
+    <!-- Google Fonts for Ripple Effect (Optional) -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/tailwindcss/2.2.19/tailwind.min.css" rel="">
+</head>
+
+<body>
+
+    <!-- Loader Section -->
+    <div id="loader" class="loader-container">
+        <div class="loader">
+            <svg viewBox="0 0 80 80">
+                <circle r="32" cy="40" cx="40" id="test"></circle>
+            </svg>
+        </div>
+        <div class="loader triangle">
+            <svg viewBox="0 0 86 80">
+                <polygon points="43 8 79 72 7 72"></polygon>
+            </svg>
+        </div>
+        <div class="loader">
+            <svg viewBox="0 0 80 80">
+                <rect height="64" width="64" y="8" x="8"></rect>
+            </svg>
+        </div>
+    </div>
+
+    <!-- Header Section -->
+    <header class="bg-dark text-white py-4 text-center">
+        <h1 class="typing-effect">Saraswati Puja Exhibition</h1>
+        <p class="lead">Explore Our Projects</p>
+    </header>
+
+    <!-- Navigation Bar -->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark sticky-top">
+        <div class="container">
+            <a class="navbar-brand" href="#">Exhibition</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+                aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item"><a class="nav-link active" href="#projects">Projects</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#team">Team</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#contact">Contact</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Main Content -->
+    <main class="container my-5">
+        <!-- Projects Section -->
+        <section id="projects" class="row text-center">
+            <h2 class="mb-4">Our Projects</h2>
+
+            <!-- Project 1 -->
+            <div class="col-md-4 project animate-on-scroll">
+                <div class="card border-0 shadow-sm">
+                    <div class="card-body">
+                        <h3 class="card-title">Bridge Overload Detection System</h3>
+                        <p class="card-text">A system to monitor and prevent accidents on bridges.</p>
+                        <a href="project1.html" class="btn btn-primary btn-ripple view-more">View Project</a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Project 2 -->
+            <div class="col-md-4 project animate-on-scroll">
+                <div class="card border-0 shadow-sm">
+                    <div class="card-body">
+                        <h3 class="card-title">Petrol Scam Detector</h3>
+                        <p class="card-text">A system to detect and prevent petrol scams at fuel stations.</p>
+                        <a href="project2.html" class="btn btn-primary btn-ripple view-more">View Project</a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Project 3 -->
+            <div class="col-md-4 project animate-on-scroll">
+                <div class="card border-0 shadow-sm">
+                    <div class="card-body">
+                        <h3 class="card-title">Smart Attendance Tracker</h3>
+                        <p class="card-text">Automatically track attendance using facial recognition.</p>
+                        <a href="project3.html" class="btn btn-primary btn-ripple view-more">View Project</a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Additional Projects -->
+            <div class="col-md-4 project animate-on-scroll">
+                <div class="card border-0 shadow-sm">
+                    <div class="card-body">
+                        <h3 class="card-title">Smart Fire Detection Alarm</h3>
+                        <p class="card-text">IoT-based fire and gas detection.</p>
+                        <a href="project4.html" class="btn btn-primary btn-ripple view-more">View Project</a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4 project animate-on-scroll">
+                <div class="card border-0 shadow-sm">
+                    <div class="card-body">
+                        <h3 class="card-title">AgriNova IoT Sphere</h3>
+                        <p class="card-text">Automated IoT-based smart irrigation.</p>
+                        <a href="project5.html" class="btn btn-primary btn-ripple view-more">View Project</a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4 project animate-on-scroll">
+                <div class="card border-0 shadow-sm">
+                    <div class="card-body">
+                        <h3 class="card-title">AI-Powered Irrigation System</h3>
+                        <p class="card-text">Automated AI-based smart irrigation.</p>
+                        <a href="project6.html" class="btn btn-primary btn-ripple view-more">View Project</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Team Section -->
+        <section id="team" class="my-5">
+            <h3>Project Team Members</h3>
+            <ul class="list-unstyled">
+                <li>Wasif Azim</li>
+                <li>Md. Rehan Ahamed</li>
+                <li>Md Sonal Mostafa Newaz</li>
+                <li>Mehul Sarkar</li>
+                <li>Ariyan Haque</li>
+                <li>Ayan Dutta</li>
+            </ul>
+        </section>
+
+        <!-- Contact Section -->
+        <section id="contact" class="my-5 text-center">
+            <h3>Contact Us</h3>
+            <p>
+                <button
+                    id="github-star-btn"
+                    style="background-color: #020406; color: white; font-weight: bold; padding: 10px 20px; border-radius: 9999px; display: flex; align-items: center; border: none; cursor: pointer;"
+                >
+                    <svg
+                        xmlns="http://www.w3.org/2000/svg"
+                        viewBox="0 0 24 24"
+                        fill="currentColor"
+                        style="width: 24px; height: 24px; margin-right: 8px;"
+                    >
+                        <path
+                            d="M12 2C6.48 2 2 6.48 2 12c0 4.42 2.87 8.17 6.84 9.49.5.09.66-.22.66-.49 0-.24-.01-.87-.01-1.71-2.78.61-3.37-1.34-3.37-1.34-.45-1.15-1.11-1.46-1.11-1.46-.91-.62.07-.61.07-.61 1.01.07 1.54 1.04 1.54 1.04.89 1.52 2.34 1.08 2.91.83.09-.65.35-1.08.63-1.33-2.22-.25-4.56-1.11-4.56-4.95 0-1.09.39-1.98 1.03-2.68-.1-.25-.45-1.27.1-2.65 0 0 .84-.27 2.75 1.02A9.56 9.56 0 0112 6.8c.85.004 1.71.115 2.51.34 1.91-1.29 2.75-1.02 2.75-1.02.55 1.38.2 2.4.1 2.65.64.7 1.03 1.59 1.03 2.68 0 3.85-2.34 4.7-4.57 4.95.36.31.68.92.68 1.85 0 1.34-.01 2.42-.01 2.75 0 .27.16.59.67.49A10.01 10.01 0 0022 12c0-5.52-4.48-10-10-10z"
+                        />
+                    </svg>
+                    Star on GitHub
+                </button>
+                Email: <a href="mailto:robocraft130@gmail.com">robocraft130@gmail.com</a>
+            </p>
+            <p>Phone: <a href="tel:+9153077332">9153077332</a></p>
+        </section>
+
+        <!-- Feedback Section -->
+        <section id="feedback" class="my-5 text-center">
+            <h3>Feedback</h3>
+            <button id="feedback-btn" class="btn btn-primary">Give Feedback</button>
+        </section>
+    </main>
+
+    <!-- Scroll-to-Top Button -->
+    <button id="scroll-to-top" class="btn btn-dark position-fixed bottom-0 end-0 m-4">↑ Top</button>
+
+    <!-- Footer -->
+    <footer class="bg-dark text-white py-3 text-center">
+        <p>&copy; Wasif Azim. All Rights Reserved.</p>
+        <div class="toggle-container">
+            <input type="checkbox" id="theme-toggle" class="toggle-checkbox">
+            <label for="theme-toggle" class="toggle-label">
+                <span class="toggle-icon"></span>
+            </label>
+        </div>
+    </footer>
+
+    <!-- Bootstrap JS and Popper.js -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
+
+    <!-- Custom JS -->
+    <script src="script.js"></script>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.17.0/xlsx.full.min.js"></script>
+    <script>
+        // Show loader for 2-3 seconds on page load
+        window.addEventListener('load', () => {
+            setTimeout(() => {
+                document.getElementById('loader').style.display = 'none';
+            }, 800); // Adjust the time as needed (2000ms = 2 seconds)
+        });
+
+        // Show loader for 2-3 seconds when "View More" is clicked
+        document.querySelectorAll('.view-more').forEach(button => {
+            button.addEventListener('click', (e) => {
+                e.preventDefault();
+                document.getElementById('loader').style.display = 'flex';
+                setTimeout(() => {
+                    window.location.href = button.getAttribute('href');
+                }, 700); // Adjust the time as needed (2000ms = 2 seconds)
+            });
+        });
+
+        // Redirect to GitHub repository page when the star button is clicked
+        document.getElementById('github-star-btn').addEventListener('click', () => {
+            window.open('https://github.com/Wasifdevoloper/Exhibition-Projects', '_blank');
+            alert('Please star our repository on GitHub!');
+        });
+
+        // Hide loader when navigating back to the main page
+        window.addEventListener('pageshow', (event) => {
+            if (event.persisted) {
+                document.getElementById('loader').style.display = 'none';
+            }
+        });
+
+        // Feedback button click event
+        document.getElementById('feedback-btn').addEventListener('click', () => {
+            const feedbackForm = document.createElement('div');
+            feedbackForm.innerHTML = `
+                <div class="feedback-form">
+                    <h3>Feedback Form</h3>
+                    <form id="feedback-form">
+                        <div class="mb-3">
+                            <label for="name" class="form-label">Name</label>
+                            <input type="text" class="form-control" id="name" required>
+                        </div>
+                        <div class="mb-3">
+                            <label for="remarks" class="form-label">Remarks</label>
+                            <textarea class="form-control" id="remarks" rows="3" required></textarea>
+                        </div>
+                        <button type="submit" class="btn btn-primary">Submit</button>
+                        <button type="button" class="btn btn-secondary" id="cancel-feedback">Cancel</button>
+                    </form>
+                </div>
+            `;
+            document.body.appendChild(feedbackForm);
+
+            document.getElementById('cancel-feedback').addEventListener('click', () => {
+                document.body.removeChild(feedbackForm);
+            });
+
+            document.getElementById('feedback-form').addEventListener('submit', (e) => {
+                e.preventDefault();
+                const name = document.getElementById('name').value;
+                const remarks = document.getElementById('remarks').value;
+
+                // Send feedback data to the server
+                fetch('/submit-feedback', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json'
+                    },
+                    body: JSON.stringify({ name, remarks })
+                })
+                .then(response => response.json())
+                .then(data => {
+                    alert('Thank you for your feedback!');
+                    document.body.removeChild(feedbackForm);
+                })
+                .catch(error => {
+                    console.error('Error:', error);
+                    alert('An error occurred while submitting your feedback.');
+                });
+            });
+        });
+    </script>
+
+    <style>
+        .feedback-form {
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            background: white;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            z-index: 10000;
+        }
+
+        .feedback-form h3 {
+            margin-bottom: 20px;
+        }
+
+        .feedback-form .form-control {
+            margin-bottom: 10px;
+        }
+
+        .feedback-form .btn {
+            margin-right: 10px;
+        }
+    </style>
+
+</body>
+
+</html>

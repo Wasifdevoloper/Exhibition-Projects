@@ -1,0 +1,315 @@
+/* General Styles */
+body {
+    font-family: 'Arial', sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f9f9f9;
+    color: #333;
+    line-height: 1.6;
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+body.dark-theme {
+    background-color: #121212;
+    color: #e0e0e0;
+}
+
+header {
+    background: linear-gradient(135deg, #6F42C1, #D7BDE2); /* Purple gradient */
+    color: white;
+    padding: 20px 0;
+    text-align: center;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+header h1 {
+    font-size: 40px;
+    font-weight: bold;
+    letter-spacing: 2px;
+    margin: 0;
+}
+
+body.dark-theme header {
+    background: linear-gradient(135deg, #333, #222);
+}
+
+.responsive-image {
+    max-width: 100%;
+    height: auto;
+    border-radius: 15px; /* Adds the curve to the image */
+    box-shadow: 0 4px 8px rgba(75, 0, 130, 0.8); /* High opacity purple box shadow */
+}
+
+/* Section Styling */
+main {
+    padding: 20px;
+    max-width: 800px;
+    margin: 0 auto;
+    background-color: white;
+    border-radius: 8px;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+    animation: fadeIn 1s ease-in-out;
+}
+
+body.dark-theme main {
+    background-color: #1f1f1f;
+}
+
+section {
+    margin-bottom: 20px;
+}
+
+section h2 {
+    font-size: 28px;
+    margin-bottom: 10px;
+    color: #6F42C1;
+    position: relative;
+}
+
+section h2::after {
+    content: '';
+    width: 80px;
+    height: 4px;
+    background: #6F42C1;
+    position: absolute;
+    bottom: -5px;
+    left: 0;
+}
+
+body.dark-theme section h2 {
+    color: #79b8ff;
+}
+
+section p {
+    font-size: 18px;
+    margin-bottom: 15px;
+    line-height: 1.8;
+}
+
+section ul {
+    margin: 0;
+    padding-left: 20px;
+    list-style: disc;
+}
+
+section ul li {
+    font-size: 18px;
+    margin-bottom: 8px;
+    transition: all 0.3s;
+}
+
+section ul li:hover {
+    color: #6F42C1;
+    transform: translateX(5px);
+}
+
+body.dark-theme section ul li:hover {
+    color: #79b8ff;
+}
+
+/* Footer Styling */
+footer {
+    text-align: center;
+    padding: 10px 0;
+    background-color: #f1f1f1;
+    border-top: 1px solid #ddd;
+}
+
+body.dark-theme footer {
+    background-color: #1f1f1f;
+}
+
+footer p {
+    margin: 0;
+    font-size: 14px;
+    color: #777;
+}
+
+body.dark-theme footer p {
+    color: #e0e0e0;
+}
+
+/* Button Styling (if needed) */
+button {
+    display: inline-block;
+    padding: 10px 20px;
+    background-color: #6F42C1;
+    color: white;
+    font-size: 18px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: all 0.3s ease-in-out;
+}
+
+button:hover {
+    background-color: #5a3791;
+}
+
+body.dark-theme button {
+    background-color: #157cf1;
+}
+
+body.dark-theme button:hover {
+    background-color: #0056b3;
+}
+
+/* Animations */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    header h1 {
+        font-size: 28px;
+    }
+
+    section h2 {
+        font-size: 22px;
+    }
+
+    section p, section ul li {
+        font-size: 16px;
+    }
+}
+
+/* Ensure the scroll-to-top button is responsive */
+#scroll-to-top {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    background: #157cf1;
+    color: white;
+    border: none;
+    padding: 10px 15px;
+    border-radius: 50%;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+    cursor: pointer;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.3s ease, visibility 0.3s ease;
+}
+
+#scroll-to-top.show {
+    opacity: 1;
+    visibility: visible;
+}
+
+#scroll-to-top:hover {
+    background: #0056b3;
+}
+
+/* Dark/Light Mode Toggle Icon */
+#theme-toggle {
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: none;
+    border: none;
+    transition: transform 0.3s ease;
+}
+
+#theme-toggle:hover {
+    transform: scale(1.1);
+}
+
+/* Optional Styles for PNG Icons */
+#theme-toggle img {
+    width: 30px;
+    height: 30px;
+    transition: transform 0.3s ease;
+}
+
+#theme-toggle.dark img {
+    transform: rotate(180deg);
+}
+
+/* Toggle Bar */
+.toggle-container {
+    position: relative;
+    display: inline-block;
+    width: 60px;
+    height: 34px;
+}
+
+.toggle-checkbox {
+    opacity: 0;
+    width: 0;
+    height: 0;
+}
+
+.toggle-label {
+    position: absolute;
+    cursor: pointer;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: #ccc;
+    transition: background-color 0.4s;
+    border-radius: 34px;
+}
+
+.toggle-label .toggle-icon {
+    position: absolute;
+    height: 26px;
+    width: 26px;
+    left: 4px;
+    bottom: 4px;
+    background-color: white;
+    transition: transform 0.4s;
+    border-radius: 50%;
+}
+
+.toggle-checkbox:checked + .toggle-label {
+    background-color: #333;
+}
+
+.toggle-checkbox:checked + .toggle-label .toggle-icon {
+    transform: translateX(26px);
+}
+
+body.light-theme .toggle-label {
+    background-color: yellow;
+}
+
+body.light-theme .toggle-label .toggle-icon::before {
+    content: '☀️';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+body.dark-theme .toggle-label {
+    background-color: #333;
+}
+
+body.dark-theme .toggle-label .toggle-icon::before {
+    content: '🌙';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+/* Theme Toggle Bar */
+.theme-toggle-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 20px;
+}
+
+.theme-toggle-container .toggle-container {
+    margin-left: 10px;
+}

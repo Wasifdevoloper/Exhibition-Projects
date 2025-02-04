@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI-Powered Irrigation System</title>
+    <link rel="stylesheet" href="project6.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/tailwindcss/2.2.19/tailwind.min.css"> <!-- Link to Tailwind CSS -->
+</head>
+<body>
+    <!-- Header Section -->
+    <header>
+        <div class="container d-flex align-items-center">
+            <button
+                class="bg-white text-center w-12 h-12 rounded-full relative text-black text-xl font-semibold group"
+                type="button"
+                onclick="animateButton(this); window.location.href='index.html';"
+            >
+                <div
+                    class="bg-green-400 rounded-full h-10 w-10 flex items-center justify-center absolute left-1 top-1 group-hover:w-10 z-10 duration-500"
+                >
+                    <svg
+                        xmlns="http://www.w3.org/2000/svg"
+                        viewBox="0 0 1024 1024"
+                        height="20px"
+                        width="20px"
+                    >
+                        <path
+                            d="M224 480h640a32 32 0 1 1 0 64H224a32 32 0 0 1 0-64z"
+                            fill="#000000"
+                        ></path>
+                        <path
+                            d="m237.248 512 265.408 265.344a32 32 0 0 1-45.312 45.312l-288-288a32 32 0 0 1 0-45.312l288-288a32 32 0 1 1 45.312 45.312L237.248 512z"
+                            fill="#000000"
+                        ></path>
+                    </svg>
+                </div>
+            </button>
+            <h1>AI-Powered Irrigation System</h1>
+        </div>
+    </header>
+
+    <!-- Navigation Bar -->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark sticky-top">
+        <div class="container">
+            <a class="navbar-brand" href="#">Project</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+                aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item"><a class="nav-link active" href="#introduction">Introduction</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#working-principle">Working Principle</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#components-used">Components Used</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#applications">Applications</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#future-enhancements">Future Enhancements</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Main Content Section -->
+    <main>
+        <div class="container">
+            <!-- Introduction Section -->
+            <section id="introduction" class="project-section animate-on-scroll">
+                <h2>Introduction</h2>
+                <p>The AI-Powered Irrigation System is an advanced solution designed to optimize water usage in agricultural fields by leveraging artificial intelligence. This system analyzes weather forecasts, soil moisture levels, and crop data in real-time to make informed decisions about irrigation schedules.</p>
+            </section>
+
+            <!-- Working Principle Section -->
+            <section id="working-principle" class="project-section animate-on-scroll">
+                <h2>Working Principle</h2>
+                <p>The AI-Powered Irrigation System operates by collecting data from various sensors and using AI algorithms to determine the optimal irrigation schedule. The key components and steps involved are:</p>
+                <ul>
+                    <li><strong>Soil Moisture Sensor:</strong> Measures the moisture content in the soil and provides real-time data to the system.</li>
+                    <li><strong>Weather Forecasting:</strong> Integrates with weather forecasting APIs to gather information about upcoming weather conditions, such as rainfall and temperature.</li>
+                    <li><strong>AI Model:</strong> Uses machine learning algorithms to analyze the collected data and predict the optimal irrigation schedule based on soil moisture levels, weather forecasts, and crop requirements.</li>
+                    <li><strong>Water Pump:</strong> Automatically activates the water pump to irrigate the fields when the AI model determines that irrigation is necessary.</li>
+                    <li><strong>Remote Monitoring:</strong> Allows users to monitor and control the irrigation system remotely through a web interface or mobile app.</li>
+                </ul>
+                <div class="image-gallery">
+                    <img src="agrinova.jpg" alt="Circuit Diagram" class="responsive-image themed-border" width="620">
+                </div>
+                <p>The system operates as follows:</p>
+                <ol>
+                    <li>The soil moisture sensor continuously monitors the moisture levels in the soil.</li>
+                    <li>The system collects weather data from forecasting APIs to understand upcoming weather conditions.</li>
+                    <li>The AI model analyzes the collected data and predicts the optimal irrigation schedule.</li>
+                    <li>When the AI model determines that irrigation is necessary, it activates the water pump to irrigate the fields.</li>
+                    <li>Users can monitor and control the system remotely, making adjustments as needed based on real-time data.</li>
+                </ol>
+            </section>
+
+            <!-- Components Used Section -->
+            <section id="components-used" class="project-section animate-on-scroll">
+                <h2>Components Used</h2>
+                <ul>
+                    <li><strong>Raspberry Pi 3:</strong> Acts as the central processing unit, running the AI model and controlling the system.</li>
+                    <li><strong>Arduino Mega:</strong> Interfaces with the sensors and controls the water pump based on commands from the Raspberry Pi.</li>
+                    <li><strong>Soil Moisture Sensor:</strong> Measures the moisture content in the soil and provides real-time data to the system.</li>
+                    <li><strong>AI Model:</strong> Trained machine learning model that predicts the optimal irrigation schedule based on collected data.</li>
+                    <li><strong>Water Pump:</strong> Automatically activates to irrigate the fields when the AI model determines that irrigation is necessary.</li>
+                    <li><strong>DHT11 Sensor:</strong> Measures temperature and humidity levels in the environment.</li>
+                    <li><strong>Relays:</strong> Control the activation of the water pump and other connected devices.</li>
+                    <li><strong>AC Bulb:</strong> Used as an indicator to show the status of the system.</li>
+                </ul>
+            </section>
+
+            <!-- Applications Section -->
+            <section id="applications" class="project-section animate-on-scroll">
+                <h2>Applications</h2>
+                <ul>
+                    <li><strong>Water Conservation:</strong> Minimizes water wastage by optimizing irrigation schedules based on real-time data and AI predictions.</li>
+                    <li><strong>Improved Crop Yield:</strong> Ensures that crops receive the optimal amount of water, promoting healthy growth and improving crop yield.</li>
+                    <li><strong>Cost-Effective:</strong> Reduces water expenses by preventing over-irrigation and ensuring efficient water usage.</li>
+                    <li><strong>Remote Monitoring:</strong> Enables users to monitor and control the irrigation system remotely, providing convenience and flexibility.</li>
+                    <li><strong>Scalable for Large-Scale Agricultural Use:</strong> Can be scaled to cover large agricultural fields, making it suitable for commercial farming operations.</li>
+                </ul>
+            </section>
+
+            <!-- Future Enhancements Section -->
+            <section id="future-enhancements" class="project-section animate-on-scroll">
+                <h2>Future Enhancements</h2>
+                <ul>
+                    <li><strong>Integration with Weather Forecasting APIs:</strong> Enhance the system by integrating with more advanced weather forecasting APIs to improve the accuracy of irrigation predictions.</li>
+                    <li><strong>Advanced Data Analytics:</strong> Implement advanced data analytics to provide insights into crop health, soil conditions, and irrigation efficiency.</li>
+                    <li><strong>Solar-Powered System:</strong> Develop a solar-powered version of the system to ensure sustainable energy usage and reduce reliance on external power sources.</li>
+                    <li><strong>Mobile App Development:</strong> Create a dedicated mobile app for enhanced user experience, allowing users to monitor and control the system from their smartphones.</li>
+                    <li><strong>Integration with Smart Home Systems:</strong> Integrate the irrigation system with existing smart home systems for seamless automation and control.</li>
+                    <li><strong>Machine Learning Model Improvements:</strong> Continuously improve the AI model by incorporating more data and refining the algorithms to enhance prediction accuracy.</li>
+                </ul>
+            </section>
+        </div>
+    </main>
+
+    <!-- Scroll-to-Top Button -->
+    <button id="scroll-to-top" class="btn btn-dark position-fixed bottom-0 end-0 m-4">↑ Top</button>
+
+    <!-- Footer Section -->
+    <footer>
+        <div class="container">
+            <p>&copy; Wasif Azim</p>
+
+            <div class="toggle-container">
+                <input type="checkbox" id="theme-toggle" class="toggle-checkbox">
+                <label for="theme-toggle" class="toggle-label">
+                    <span class="toggle-icon"></span>
+                </label>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Bootstrap JS and Popper.js -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
+
+    <!-- Custom JS -->
+    <script src="project6.js"></script>
+
+    <script>
+        function animateButton(button) {
+            button.classList.add('clicked');
+            setTimeout(() => button.classList.remove('clicked'), 300);
+        }
+    </script>
+
+    <style>
+        .clicked {
+            animation: clickAnimation 0.3s ease;
+        }
+
+        @keyframes clickAnimation {
+            0% {
+                transform: scale(1);
+            }
+            50% {
+                transform: scale(0.9);
+            }
+            100% {
+                transform: scale(1);
+            }
+        }
+    </style>
+</body>
+</html>

@@ -1,0 +1,362 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Smart Attendance Tracker</title>
+    <link rel="stylesheet" href="project3.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/tailwindcss/2.2.19/tailwind.min.css"> <!-- Link to Tailwind CSS -->
+</head>
+
+<body>
+    <!-- Header Section -->
+    <header>
+        <div class="container d-flex align-items-center">
+            <button
+                class="bg-white text-center w-12 h-12 rounded-full relative text-black text-xl font-semibold group"
+                type="button"
+                onclick="animateButton(this); window.location.href='index.html';"
+            >
+                <div
+                    class="bg-green-400 rounded-full h-10 w-10 flex items-center justify-center absolute left-1 top-1 group-hover:w-10 z-10 duration-500"
+                >
+                    <svg
+                        xmlns="http://www.w3.org/2000/svg"
+                        viewBox="0 0 1024 1024"
+                        height="20px"
+                        width="20px"
+                    >
+                        <path
+                            d="M224 480h640a32 32 0 1 1 0 64H224a32 32 0 0 1 0-64z"
+                            fill="#000000"
+                        ></path>
+                        <path
+                            d="m237.248 512 265.408 265.344a32 32 0 0 1-45.312 45.312l-288-288a32 32 0 0 1 0-45.312l288-288a32 32 0 1 1 45.312 45.312L237.248 512z"
+                            fill="#000000"
+                        ></path>
+                    </svg>
+                </div>
+            </button>
+            <h1>Smart Attendance Tracker</h1>
+        </div>
+    </header>
+
+    <!-- Navigation Bar -->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark sticky-top">
+        <div class="container">
+            <a class="navbar-brand" href="#">Project</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+                aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item"><a class="nav-link active" href="#introduction">Introduction</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#working-principle">Working Principle</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#components-used">Components Used</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#applications">Applications</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#future-enhancements">Future Enhancements</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Main Content Section -->
+    <main>
+        <div class="container">
+            <!-- Introduction Section -->
+            <section id="introduction" class="project-section animate-on-scroll">
+                <h2>Introduction</h2>
+                <p>The Smart Attendance Tracker is an advanced system that automates the process of tracking attendance using facial recognition technology. This system is designed to enhance the efficiency and accuracy of attendance management in educational institutions, workplaces, and other organizations.</p>
+            </section>
+
+            <!-- Working Principle Section -->
+            <section id="working-principle" class="project-section animate-on-scroll">
+                <h2>Working Principle</h2>
+                <p>The Smart Attendance Tracker operates using a combination of computer vision and machine learning techniques to recognize and verify faces. The system captures images of individuals, processes the images to extract facial features, and matches the features against a pre-registered database to mark attendance. The key components and steps involved are:</p>
+                <ul>
+                    <li><strong>Image Capture:</strong> The system uses a camera to capture images of individuals as they enter the premises. The camera is strategically placed to ensure clear and unobstructed views of faces.</li>
+                    <li><strong>Face Detection:</strong> The captured images are processed using computer vision algorithms to detect faces. The system identifies the location of faces in the images and extracts the relevant facial features.</li>
+                    <li><strong>Feature Extraction:</strong> The system uses machine learning models to extract unique facial features from the detected faces. These features are used to create a digital representation of each face.</li>
+                    <li><strong>Face Recognition:</strong> The extracted features are compared against a pre-registered database of faces to identify individuals. The system uses advanced matching algorithms to ensure high accuracy and reliability.</li>
+                    <li><strong>Attendance Marking:</strong> Once a face is recognized, the system marks the attendance of the individual in a digital attendance register. The attendance data is stored securely and can be accessed for reporting and analysis.</li>
+                </ul>
+                <div class="image-gallery">
+                    <img src="project3_2.png" alt="attendance_excel" class="responsive-image">
+                </div>
+                <p>The system operates as follows:</p>
+                <ol>
+                    <li>The camera captures images of individuals as they enter the premises.</li>
+                    <li>The system processes the images to detect faces and extract facial features.</li>
+                    <li>The extracted features are compared against a pre-registered database to identify individuals.</li>
+                    <li>Once a face is recognized, the system marks the attendance of the individual in a digital attendance register.</li>
+                    <li>The attendance data is stored securely and can be accessed for reporting and analysis.</li>
+                </ol>
+                <h3>Code for Face Registration</h3>
+                <div class="code-box">
+                    <pre id="python-code1" style="max-height: 200px; overflow: hidden;">
+<code class="language-python">
+# filepath: /c:/Users/Md.zamal/OneDrive/Desktop/face_recognition_project-main/add_faces.py
+import cv2
+import pickle
+import numpy as np
+import os
+
+video = cv2.VideoCapture(0)
+facedetect = cv2.CascadeClassifier('data/haarcascade_frontalface_default.xml')
+
+faces_data = []
+i = 0
+name = input("Enter Your Name: ")
+
+while True:
+    ret, frame = video.read()
+    gray = cv2.cvtColor(frame, cv2.COLOR_BGR2GRAY)
+    faces = facedetect.detectMultiScale(gray, 1.3, 5)
+    for (x, y, w, h) in faces:
+        crop_img = frame[y:y+h, x:x+w, :]
+        resized_img = cv2.resize(crop_img, (50, 50))
+        if len(faces_data) <= 100 and i % 10 == 0:
+            faces_data.append(resized_img)
+        i += 1
+        cv2.putText(frame, str(len(faces_data)), (50, 50), cv2.FONT_HERSHEY_COMPLEX, 1, (50, 50, 255), 1)
+        cv2.rectangle(frame, (x, y), (x+w, y+h), (50, 50, 255), 1)
+    cv2.imshow("Frame", frame)
+    k = cv2.waitKey(1)
+    if k == ord('q') or len(faces_data) == 100:
+        break
+video.release()
+cv2.destroyAllWindows()
+
+faces_data = np.asarray(faces_data)
+faces_data = faces_data.reshape(100, -1)
+
+# Paths to the data files
+names_path = 'C:/Users/Md.zamal/OneDrive/Desktop/face_recognition_project-main/data/names.pkl'
+faces_path = 'C:/Users/Md.zamal/OneDrive/Desktop/face_recognition_project-main/data/faces.pkl'
+
+# Clear existing data before adding new entries
+if os.path.isfile(names_path):
+    os.remove(names_path)
+if os.path.isfile(faces_path):
+    os.remove(faces_path)
+
+names = [name] * 100
+with open(names_path, 'wb') as f:
+    pickle.dump(names, f)
+
+with open(faces_path, 'wb') as f:
+    pickle.dump(faces_data, f)
+</code>
+                    </pre>
+                    <button id="read-more-btn1" class="btn btn-primary mt-3">Read More</button>
+                </div>
+                <h3>Code for Face Recognition and Attendance Marking</h3>
+                <div class="code-box">
+                    <pre id="python-code2" style="max-height: 200px; overflow: hidden;">
+<code class="language-python">
+# filepath: /c:/Users/Md.zamal/OneDrive/Desktop/face_recognition_project-main/test.py
+from sklearn.neighbors import KNeighborsClassifier
+import cv2
+import pickle
+import numpy as np
+import os
+import csv
+import time
+from datetime import datetime
+from win32com.client import Dispatch
+import openpyxl
+from openpyxl.styles import Font
+
+def speak(str1):
+    speak = Dispatch("SAPI.SpVoice")
+    speak.Speak(str1)
+
+video = cv2.VideoCapture(0)
+facedetect = cv2.CascadeClassifier('data/haarcascade_frontalface_default.xml')
+
+# Load the face data and labels using the correct path
+with open('C:/Users/Md.zamal/OneDrive/Desktop/face_recognition_project-main/data/names.pkl', 'rb') as w:
+    LABELS = pickle.load(w)
+with open('C:/Users/Md.zamal/OneDrive/Desktop/face_recognition_project-main/data/faces.pkl', 'rb') as f:
+    FACES = pickle.load(f)
+
+# Check lengths of FACES and LABELS
+print('Shape of Faces matrix --> ', FACES.shape)
+print('Number of Labels --> ', len(LABELS))
+
+if FACES.shape[0] != len(LABELS):
+    raise ValueError(f"Mismatch in number of samples: FACES({FACES.shape[0]}) and LABELS({len(LABELS)})")
+
+knn = KNeighborsClassifier(n_neighbors=5)
+knn.fit(FACES, LABELS)
+
+imgBackground = cv2.imread("background.png")
+
+COL_NAMES = ['NAME', 'TIME']
+
+# Keep track of already marked students
+marked_students = set()
+
+# Excel file setup
+excel_file = "Attendance/Attendance_" + datetime.now().strftime("%d-%m-%Y") + ".xlsx"
+if not os.path.isfile(excel_file):
+    workbook = openpyxl.Workbook()
+    sheet = workbook.active
+    sheet.append(COL_NAMES)
+    workbook.save(excel_file)
+
+while True:
+    ret, frame = video.read()
+    gray = cv2.cvtColor(frame, cv2.COLOR_BGR2GRAY)
+    faces = facedetect.detectMultiScale(gray, 1.3, 5)
+    for (x, y, w, h) in faces:
+        crop_img = frame[y:y+h, x:x+w, :]
+        resized_img = cv2.resize(crop_img, (50, 50)).flatten().reshape(1, -1)
+        output = knn.predict(resized_img)[0]  // Get the label (name) of the predicted person
+
+        if output not in marked_students:  // Check if the student has not been marked
+            ts = time.time()
+            date = datetime.fromtimestamp(ts).strftime("%d-%m-%Y")
+            timestamp = datetime.fromtimestamp(ts).strftime("%H:%M:%S")  // Corrected time format
+            csv_file = "Attendance/Attendance_" + date + ".csv"
+            exist = os.path.isfile(csv_file)
+            cv2.rectangle(frame, (x, y), (x+w, y+h), (0, 0, 255), 1)
+            cv2.rectangle(frame, (x, y), (x+w, y+h), (50, 50, 255), 2)
+            cv2.rectangle(frame, (x, y-40), (x+w, y), (50, 50, 255), -1)
+            cv2.putText(frame, str(output), (x, y-15), cv2.FONT_HERSHEY_COMPLEX, 1, (255, 255, 255), 1)
+            cv2.rectangle(frame, (x, y), (x+w, y+h), (50, 50, 255), 1)
+            attendance = [str(output), str(timestamp)]
+
+            // Mark the student as present in CSV
+            if exist:
+                with open(csv_file, "+a") as csvfile:
+                    writer = csv.writer(csvfile)
+                    writer.writerow(attendance)
+                csvfile.close()
+            else:
+                with open(csv_file, "+a") as csvfile:
+                    writer = csv.writer(csvfile)
+                    writer.writerow(COL_NAMES)
+                    writer.writerow(attendance)
+                csvfile.close()
+
+            // Mark the student as present in Excel
+            workbook = openpyxl.load_workbook(excel_file)
+            sheet = workbook.active
+            sheet.append(attendance)
+
+            // Adjust font size for names dynamically based on length
+            name_cell = sheet.cell(row=sheet.max_row, column=1)
+            name_length = len(str(output))
+            font_size = max(8, min(12, 12 - 0.1 * (name_length - 10)))
+            name_cell.font = Font(size=font_size)
+
+            workbook.save(excel_file)
+
+            // Add the student to the set of marked students
+            marked_students.add(output)
+            speak("Attendance Taken for " + str(output))
+
+    imgBackground[162:162 + 480, 55:55 + 640] = frame
+    cv2.imshow("Frame", imgBackground)
+    k = cv2.waitKey(1)
+    if k == ord('q'):
+        break
+
+video.release()
+cv2.destroyAllWindows()
+</code>
+                    </pre>
+                    <button id="read-more-btn2" class="btn btn-primary mt-3">Read More</button>
+                </div>
+            </section>
+
+            <!-- Components Used Section -->
+            <section id="components-used" class="project-section animate-on-scroll">
+                <h2>Components Used</h2>
+                <ul>
+                    <li><strong>Camera:</strong> Captures images of individuals for facial recognition.</li>
+                    <li><strong>Computer Vision Algorithms:</strong> Detects faces in the captured images and extracts facial features.</li>
+                    <li><strong>Machine Learning Models:</strong> Extracts unique facial features and matches them against a pre-registered database.</li>
+                    <li><strong>Database:</strong> Stores the pre-registered faces and attendance data securely.</li>
+                    <li><strong>Software Interface:</strong> Provides a user-friendly interface for managing attendance data and generating reports.</li>
+                </ul>
+            </section>
+
+            <!-- Applications Section -->
+            <section id="applications" class="project-section animate-on-scroll">
+                <h2>Applications</h2>
+                <ul>
+                    <li><strong>Educational Institutions:</strong> Automates attendance tracking in schools, colleges, and universities, ensuring accurate and efficient attendance management.</li>
+                    <li><strong>Workplaces:</strong> Enhances attendance tracking in offices and workplaces, reducing manual effort and improving accuracy.</li>
+                    <li><strong>Event Management:</strong> Streamlines attendance tracking at conferences, seminars, and other events, providing real-time attendance data.</li>
+                    <li><strong>Security and Access Control:</strong> Integrates with security systems to provide secure access control based on facial recognition.</li>
+                    <li><strong>Healthcare Facilities:</strong> Tracks attendance of staff and patients in healthcare facilities, ensuring efficient management and compliance.</li>
+                </ul>
+            </section>
+
+            <!-- Future Enhancements Section -->
+            <section id="future-enhancements" class="project-section animate-on-scroll">
+                <h2>Future Enhancements</h2>
+                <ul>
+                    <li><strong>Integration with Mobile Apps:</strong> Develop mobile apps for real-time attendance tracking and notifications, allowing users to access attendance data on the go.</li>
+                    <li><strong>Advanced Analytics:</strong> Implement advanced analytics and machine learning algorithms to analyze attendance patterns and provide insights for decision-making.</li>
+                    <li><strong>Cloud Integration:</strong> Integrate the system with cloud platforms to provide scalable and secure storage of attendance data.</li>
+                    <li><strong>Multi-Camera Support:</strong> Add support for multiple cameras to cover larger areas and improve the accuracy of attendance tracking.</li>
+                    <li><strong>Enhanced Security Features:</strong> Implement advanced security features to protect attendance data and ensure compliance with data privacy regulations.</li>
+                </ul>
+            </section>
+        </div>
+    </main>
+
+    <!-- Scroll-to-Top Button -->
+    <button id="scroll-to-top" class="btn btn-dark position-fixed bottom-0 end-0 m-4">↑ Top</button>
+
+    <!-- Footer Section -->
+    <footer>
+        <div class="container">
+            <p>&copy; 2025 Saraswati Puja Exhibition Team</p>
+
+            <div class="toggle-container">
+                <input type="checkbox" id="theme-toggle" class="toggle-checkbox">
+                <label for="theme-toggle" class="toggle-label">
+                    <span class="toggle-icon"></span>
+                </label>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Bootstrap JS and Popper.js -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
+
+    <!-- Custom JS -->
+    <script src="project3.js"></script>
+    <script>
+        document.getElementById('read-more-btn1').addEventListener('click', function() {
+            var codeBox = document.getElementById('python-code1');
+            if (codeBox.style.maxHeight === '200px') {
+                codeBox.style.maxHeight = 'none';
+                this.textContent = 'Read Less';
+            } else {
+                codeBox.style.maxHeight = '200px';
+                this.textContent = 'Read More';
+            }
+        });
+
+        document.getElementById('read-more-btn2').addEventListener('click', function() {
+            var codeBox = document.getElementById('python-code2');
+            if (codeBox.style.maxHeight === '200px') {
+                codeBox.style.maxHeight = 'none';
+                this.textContent = 'Read Less';
+            } else {
+                codeBox.style.maxHeight = '200px';
+                this.textContent = 'Read More';
+            }
+        });
+    </script>
+</body>
+
+</html>

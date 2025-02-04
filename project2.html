@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Petrol Scam Detector</title>
+
+    <link rel="stylesheet" href="project2.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/tailwindcss/2.2.19/tailwind.min.css"> <!-- Link to Tailwind CSS -->
+</head>
+<body>
+    <!-- Header Section -->
+    <header>
+        <div class="container d-flex align-items-center">
+            <button
+                class="bg-white text-center w-12 h-12 rounded-full relative text-black text-xl font-semibold group"
+                type="button"
+                onclick="animateButton(this); window.location.href='index.html';"
+            >
+                <div
+                    class="bg-green-400 rounded-full h-10 w-10 flex items-center justify-center absolute left-1 top-1 group-hover:w-10 z-10 duration-500"
+                >
+                    <svg
+                        xmlns="http://www.w3.org/2000/svg"
+                        viewBox="0 0 1024 1024"
+                        height="20px"
+                        width="20px"
+                    >
+                        <path
+                            d="M224 480h640a32 32 0 1 1 0 64H224a32 32 0 0 1 0-64z"
+                            fill="#000000"
+                        ></path>
+                        <path
+                            d="m237.248 512 265.408 265.344a32 32 0 0 1-45.312 45.312l-288-288a32 32 0 0 1 0-45.312l288-288a32 32 0 1 1 45.312 45.312L237.248 512z"
+                            fill="#000000"
+                        ></path>
+                    </svg>
+                </div>
+            </button>
+            <h1>Petrol Scam Detector</h1>
+        </div>
+    </header>
+
+    <!-- Navigation Bar -->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark sticky-top">
+        <div class="container">
+            <a class="navbar-brand" href="#">Project</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+                aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item"><a class="nav-link active" href="#introduction">Introduction</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#working-principle">Working Principle</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#components-used">Components Used</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#applications">Applications</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#future-enhancements">Future Enhancements</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Main Content Section -->
+    <main>
+        <div class="container">
+            <!-- Introduction Section -->
+            <section id="introduction" class="project-section animate-on-scroll">
+                <h2>Introduction</h2>
+                <p>The Petrol Scam Detector is designed to prevent fraudulent activities at petrol stations by accurately measuring the amount of petrol dispensed. This system ensures that customers receive the exact amount of petrol they pay for, thereby preventing scams and ensuring transparency.</p>
+            </section>
+
+            <!-- Working Principle Section -->
+            <section id="working-principle" class="project-section animate-on-scroll">
+                <h2>Working Principle</h2>
+                <p>The system operates using a fluid flow meter to measure the amount of petrol dispensed. The flow meter sends signals to the Arduino UNO, which processes the data and displays the amount of petrol dispensed on an LCD display with an I2C module. The key components and steps involved are:</p>
+                <ul>
+                    <li><strong>Fluid Flow Meter:</strong> Measures the flow rate of petrol and sends signals to the Arduino UNO.</li>
+                    <li><strong>Arduino UNO:</strong> Processes the signals from the flow meter and calculates the amount of petrol dispensed.</li>
+                    <li><strong>LCD Display with I2C Module:</strong> Displays the amount of petrol dispensed in real-time.</li>
+                </ul>
+                <div class="image-gallery">
+                    <img src="circuit_image (1)_processed.jpg" alt="Petrol Scam Detector" class="responsive-image">
+                </div>
+                <p>The system operates as follows:</p>
+                <ol>
+                    <li>The fluid flow meter measures the flow rate of petrol as it is dispensed.</li>
+                    <li>The flow meter sends signals to the Arduino UNO, which processes the data and calculates the amount of petrol dispensed.</li>
+                    <li>The calculated amount is displayed on the LCD display in real-time, allowing customers to verify the amount of petrol they receive.</li>
+                </ol>
+            </section>
+
+            <!-- Components Used Section -->
+            <section id="components-used" class="project-section animate-on-scroll">
+                <h2>Components Used</h2>
+                <ul>
+                    <li><strong>Fluid Flow Meter:</strong> Measures the flow rate of petrol.</li>
+                    <li><strong>Arduino UNO:</strong> Microcontroller used to process the signals from the flow meter and calculate the amount of petrol dispensed.</li>
+                    <li><strong>LCD Display with I2C Module:</strong> Displays the amount of petrol dispensed in real-time.</li>
+                    <li><strong>Power Supply:</strong> Provides the necessary power to the components.</li>
+                    <li><strong>Connecting Wires:</strong> Used to connect the components together.</li>
+                </ul>
+            </section>
+
+            <!-- Applications Section -->
+            <section id="applications" class="project-section animate-on-scroll">
+                <h2>Applications</h2>
+                <ul>
+                    <li><strong>Petrol Stations:</strong> Ensures that customers receive the exact amount of petrol they pay for, preventing fraudulent activities.</li>
+                    <li><strong>Fuel Dispensers:</strong> Can be integrated into fuel dispensers to provide accurate measurements of fuel dispensed.</li>
+                    <li><strong>Quality Control:</strong> Ensures the accuracy and reliability of fuel dispensing systems.</li>
+                </ul>
+            </section>
+
+            <!-- Future Enhancements Section -->
+            <section id="future-enhancements" class="project-section animate-on-scroll">
+                <h2>Future Enhancements</h2>
+                <ul>
+                    <li><strong>IoT Integration:</strong> Integrate the system with IoT capabilities to provide real-time data to a central monitoring system, allowing for remote monitoring and control.</li>
+                    <li><strong>Mobile App Development:</strong> Develop a mobile app for real-time monitoring and control of the system, providing alerts and notifications to users.</li>
+                    <li><strong>Enhanced Sensor Accuracy:</strong> Use advanced sensors with higher accuracy and sensitivity for improved detection capabilities.</li>
+                    <li><strong>Battery Backup:</strong> Add a battery backup to ensure the system remains operational during power outages.</li>
+                </ul>
+            </section>
+        </div>
+    </main>
+
+    <!-- Scroll-to-Top Button -->
+    <button id="scroll-to-top" class="btn btn-dark position-fixed bottom-0 end-0 m-4">↑ Top</button>
+
+    <!-- Footer Section -->
+    <footer>
+        <div class="container">
+            <p>&copy; 2025 Saraswati Puja Exhibition Team</p>
+
+            <div class="toggle-container">
+                <input type="checkbox" id="theme-toggle" class="toggle-checkbox">
+                <label for="theme-toggle" class="toggle-label">
+                    <span class="toggle-icon"></span>
+                </label>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Bootstrap JS and Popper.js -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
+
+    <!-- Custom JS -->
+    <script src="project2.js"></script>
+
+    <script>
+        function animateButton(button) {
+            button.classList.add('clicked');
+            setTimeout(() => button.classList.remove('clicked'), 300);
+        }
+    </script>
+
+    <style>
+        .clicked {
+            animation: clickAnimation 0.3s ease;
+        }
+
+        @keyframes clickAnimation {
+            0% {
+                transform: scale(1);
+            }
+            50% {
+                transform: scale(0.9);
+            }
+            100% {
+                transform: scale(1);
+            }
+        }
+    </style>
+</body>
+</html>

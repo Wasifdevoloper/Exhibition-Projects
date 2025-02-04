@@ -1,0 +1,558 @@
+/* General Reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, sans-serif;
+}
+
+/* Body Styling */
+body {
+    background-color: #f4f4f9; /* Light grey background (Light Mode) */
+    color: #333; /* Dark text (Light Mode) */
+    line-height: 1.6;
+    overflow-x: hidden; /* Prevent horizontal scroll issues */
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+/* Loader Container */
+.loader-container {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(255, 255, 255, 0.9);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 9999;
+}
+
+/* From Uiverse.io by mobinkakei */
+.loader {
+    --path: #2f3545;
+    --dot: #5628ee;
+    --duration: 3s;
+    width: 44px;
+    height: 44px;
+    position: relative;
+}
+
+.loader:before {
+    content: "";
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    position: absolute;
+    display: block;
+    background: var(--dot);
+    top: 37px;
+    left: 19px;
+    transform: translate(-18px, -18px);
+    animation: dotRect var(--duration) cubic-bezier(0.785, 0.135, 0.15, 0.86)
+        infinite;
+}
+
+.loader svg {
+    display: block;
+    width: 100%;
+    height: 100%;
+}
+
+.loader svg rect,
+.loader svg polygon,
+.loader svg circle {
+    fill: none;
+    stroke: var(--path);
+    stroke-width: 10px;
+    stroke-linejoin: round;
+    stroke-linecap: round;
+}
+
+.loader svg polygon {
+    stroke-dasharray: 145 76 145 76;
+    stroke-dashoffset: 0;
+    animation: pathTriangle var(--duration) cubic-bezier(0.785, 0.135, 0.15, 0.86)
+        infinite;
+}
+
+.loader svg rect {
+    stroke-dasharray: 192 64 192 64;
+    stroke-dashoffset: 0;
+    animation: pathRect 3s cubic-bezier(0.785, 0.135, 0.15, 0.86) infinite;
+}
+
+.loader svg circle {
+    stroke-dasharray: 150 50 150 50;
+    stroke-dashoffset: 75;
+    animation: pathCircle var(--duration) cubic-bezier(0.785, 0.135, 0.15, 0.86)
+        infinite;
+}
+
+.loader.triangle {
+    width: 48px;
+}
+
+.loader.triangle:before {
+    left: 21px;
+    transform: translate(-10px, -18px);
+    animation: dotTriangle var(--duration) cubic-bezier(0.785, 0.135, 0.15, 0.86)
+        infinite;
+}
+
+@keyframes pathTriangle {
+    33% {
+        stroke-dashoffset: 74;
+    }
+
+    66% {
+        stroke-dashoffset: 147;
+    }
+
+    100% {
+        stroke-dashoffset: 221;
+    }
+}
+
+@keyframes dotTriangle {
+    33% {
+        transform: translate(0, 0);
+    }
+
+    66% {
+        transform: translate(10px, -18px);
+    }
+
+    100% {
+        transform: translate(-10px, -18px);
+    }
+}
+
+@keyframes pathRect {
+    25% {
+        stroke-dashoffset: 64;
+    }
+
+    50% {
+        stroke-dashoffset: 128;
+    }
+
+    75% {
+        stroke-dashoffset: 192;
+    }
+
+    100% {
+        stroke-dashoffset: 256;
+    }
+}
+
+@keyframes dotRect {
+    25% {
+        transform: translate(0, 0);
+    }
+
+    50% {
+        transform: translate(18px, -18px);
+    }
+
+    75% {
+        transform: translate(0, -36px);
+    }
+
+    100% {
+        transform: translate(-18px, -18px);
+    }
+}
+
+@keyframes pathCircle {
+    25% {
+        stroke-dashoffset: 125;
+    }
+
+    50% {
+        stroke-dashoffset: 175;
+    }
+
+    75% {
+        stroke-dashoffset: 225;
+    }
+
+    100% {
+        stroke-dashoffset: 275;
+    }
+}
+
+.loader {
+    display: inline-block;
+    margin: 0 16px;
+}
+
+/* New Dark Mode */
+body.dark-theme {
+    background-color: #121212; /* Dark background */
+    color: #e0e0e0; /* Light text */
+}
+
+body.dark-theme header, body.dark-theme footer {
+    background: #1f1f1f;
+}
+
+body.dark-theme .project {
+    background: #2c2c2c; /* Dark background for project cards */
+    color: #e0e0e0; /* Light text */
+}
+
+body.dark-theme .navbar, body.dark-theme .navbar-brand, body.dark-theme .nav-link {
+    background: #1f1f1f;
+    color: #e0e0e0;
+}
+
+body.dark-theme .btn-primary {
+    background-color: #157cf1;
+    border-color: #157cf1;
+}
+
+body.dark-theme .btn-primary:hover {
+    background-color: #0056b3;
+    border-color: #0056b3;
+}
+
+body.dark-theme .card {
+    background: #2c2c2c;
+    color: #e0e0e0;
+}
+
+body.dark-theme .card-title {
+    color: #157cf1;
+}
+
+body.dark-theme .card-text {
+    color: #e0e0e0;
+}
+
+body.dark-theme .toggle-label {
+    background-color: #333;
+}
+
+body.dark-theme .toggle-label .toggle-icon::before {
+    content: '🌙';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+/* Header */
+header {
+    background: linear-gradient(90deg, #1e2a38, #157cf1); /* Cool gradient for header */
+    color: white;
+    text-align: center;
+    padding: 30px 0;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+    transition: background 0.3s ease, top 0.3s ease; /* Added transition for smooth animation */
+}
+
+header.hidden {
+    top: -100px; /* Hide header by moving it up */
+}
+
+.navbar {
+    transition: top 0.3s ease; /* Smooth transition for navbar */
+}
+
+header h1 {
+    font-size: 40px;
+    text-transform: uppercase;
+    margin-bottom: 10px;
+    letter-spacing: 2px;
+    animation: fadeInDown 1s ease;
+}
+
+header p {
+    font-size: 18px;
+    margin: 0;
+    animation: fadeInUp 1s ease;
+}
+
+/* Footer */
+footer {
+    background-color: #1e2a38;
+    color: white;
+    text-align: center;
+    padding: 20px 0;
+    margin-top: 20px;
+    transition: background 0.3s ease;
+}
+
+/* Projects Section */
+.projects {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center; /* Center align items */
+    align-items: center;
+    gap: 20px;
+    padding: 40px;
+    text-align: center; /* Ensure text inside is centered */
+    animation: fadeIn 1s ease;
+}
+
+/* Individual Project Cards */
+.project {
+    width: 90%; /* Ensures proper width on mobile */
+    max-width: 400px; /* Prevents it from becoming too wide */
+    background: white;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    text-align: center; /* Ensures text is aligned */
+    transition: transform 0.3s, box-shadow 0.3s, background 0.3s, color 0.3s;
+    margin: 0 auto; /* Centering the project box */
+    animation: fadeInUp 1s ease;
+}
+
+.project:hover {
+    transform: scale(1.05); /* Zoom-in effect on hover */
+    box-shadow: 0 8px 15px rgba(0, 0, 0, 0.2);
+}
+
+.project.zoom-in {
+    transform: scale(1.05); /* Zoom-in effect */
+    box-shadow: 0 8px 15px rgba(0, 0, 0, 0.2);
+}
+
+/* Responsive Styles */
+@media (max-width: 767px) {
+    .projects {
+        flex-direction: column;
+        padding: 20px;
+    }
+
+    .project {
+        width: 90%;
+        text-align: center; /* Ensure text stays centered */
+    }
+
+    header h1 {
+        font-size: 20px;
+    }
+
+    header p {
+        font-size: 16px;
+    }
+}
+
+@media (min-width: 768px) and (max-width: 991px) {
+    .project {
+        width: 45%;
+    }
+
+    header h1 {
+        font-size: 36px;
+    }
+}
+
+@media (min-width: 992px) {
+    .project {
+        width: 30%;
+    }
+
+    header h1 {
+        font-size: 40px;
+    }
+}
+
+/* Ensure the footer toggle container is responsive */
+footer .toggle-container {
+    margin-top: 10px;
+}
+
+/* Ensure the scroll-to-top button is responsive */
+#scroll-to-top {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    background: #157cf1;
+    color: white;
+    border: none;
+    padding: 10px 15px;
+    border-radius: 50%;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+    cursor: pointer;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.3s ease, visibility 0.3s ease;
+}
+
+#scroll-to-top.show {
+    opacity: 1;
+    visibility: visible;
+}
+
+#scroll-to-top:hover {
+    background: #0056b3;
+}
+
+/* Dark/Light Mode Toggle Icon */
+#theme-toggle {
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: none;
+    border: none;
+    transition: transform 0.3s ease;
+}
+
+#theme-toggle:hover {
+    transform: scale(1.1);
+}
+
+/* Optional Styles for PNG Icons */
+#theme-toggle img {
+    width: 30px;
+    height: 30px;
+    transition: transform 0.3s ease;
+}
+
+#theme-toggle.dark img {
+    transform: rotate(180deg);
+}
+
+/* Toggle Bar */
+.toggle-container {
+    position: relative;
+    display: inline-block;
+    width: 60px;
+    height: 34px;
+}
+
+.toggle-checkbox {
+    opacity: 0;
+    width: 0;
+    height: 0;
+}
+
+.toggle-label {
+    position: absolute;
+    cursor: pointer;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: #ccc;
+    transition: background-color 0.4s;
+    border-radius: 34px;
+}
+
+.toggle-label .toggle-icon {
+    position: absolute;
+    height: 26px;
+    width: 26px;
+    left: 4px;
+    bottom: 4px;
+    background-color: white;
+    transition: transform 0.4s;
+    border-radius: 50%;
+}
+
+.toggle-checkbox:checked + .toggle-label {
+    background-color: #333;
+}
+
+.toggle-checkbox:checked + .toggle-label .toggle-icon {
+    transform: translateX(26px);
+}
+
+body.light-theme .toggle-label {
+    background-color: yellow;
+}
+
+body.light-theme .toggle-label .toggle-icon::before {
+    content: '☀️';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+body.dark-theme .toggle-label {
+    background-color: #333;
+}
+
+body.dark-theme .toggle-label .toggle-icon::before {
+    content: '🌙';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+/* Theme Toggle Bar */
+.theme-toggle-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 20px;
+}
+
+.theme-toggle-container .toggle-container {
+    margin-left: 10px;
+}
+
+/* Keyframes for Animations */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes fadeInDown {
+    from {
+        opacity: 0;
+        transform: translateY(-20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes fadeInLeft {
+    from {
+        opacity: 0;
+        transform: translateX(-20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+@keyframes fadeInRight {
+    from {
+        opacity: 0;
+        transform: translateX(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
