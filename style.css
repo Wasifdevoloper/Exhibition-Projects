@@ -278,6 +278,21 @@ header p {
     animation: fadeInUp 1s ease;
 }
 
+/* Main Content */
+main {
+    padding: 20px;
+    max-width: 1000px;
+    margin: 20px auto;
+    background-color: #ffffff; /* White background for main content */
+    border-radius: 8px;
+    box-shadow: 0 8px 16px rgba(0, 77, 64, 0.5); /* Dark teal shadow */
+    animation: fadeIn 1s ease-in-out;
+}
+
+body.dark-theme main {
+    background-color: #1f1f1f;
+}
+
 /* Footer */
 footer {
     background-color: #1e2a38;
@@ -322,6 +337,84 @@ footer {
 .project.zoom-in {
     transform: scale(1.05); /* Zoom-in effect */
     box-shadow: 0 8px 15px rgba(0, 0, 0, 0.2);
+}
+
+/* Team Section */
+#team {
+    text-align: center;
+    margin-top: 50px;
+}
+
+#team h3 {
+    font-size: 28px;
+    margin-bottom: 20px;
+    color: #157cf1;
+    position: relative;
+}
+
+#team h3::after {
+    content: '';
+    width: 80px;
+    height: 4px;
+    background: #157cf1;
+    position: absolute;
+    bottom: -5px;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+#team ul {
+    list-style: none;
+    padding: 0;
+}
+
+#team ul li {
+    font-size: 20px;
+    margin: 10px 0;
+    color: #333;
+    position: relative;
+    display: inline-block;
+    padding: 10px 20px;
+    background: #f4f4f9;
+    border-radius: 8px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s, box-shadow 0.3s, background 0.3s, color 0.3s;
+    cursor: pointer;
+}
+
+#team ul li:hover {
+    transform: scale(1.1);
+    box-shadow: 0 8px 15px rgba(0, 0, 0, 0.2);
+    background: #157cf1;
+    color: white;
+}
+
+#team ul li a {
+    color: inherit;
+    text-decoration: none;
+}
+
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+#team ul li {
+    animation: fadeInUp 0.5s ease-in-out;
+}
+
+#team ul li:nth-child(odd) {
+    animation-delay: 0.1s;
+}
+
+#team ul li:nth-child(even) {
+    animation-delay: 0.2s;
 }
 
 /* Responsive Styles */
